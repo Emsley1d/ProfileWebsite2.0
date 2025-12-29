@@ -22,12 +22,11 @@
     max-width: 800px;
     margin-bottom: 20px;
     justify-content: center;
-    height: 200px
+    height: 300px;
 }
 
 .text-box {
-    margin: 10px;
-    padding: 20px;
+    padding: 10px;
     background-color: #f0f0f0;
     text-align: left;
     border: 1px solid #ccc;
@@ -37,6 +36,7 @@
     flex: 1;
     max-width: 30%;
     font-size: 50px;
+    margin-right: 10px;
 }
 
 .box2 {
@@ -44,9 +44,21 @@
     max-width: 70%;
 }
 
+.sub-heading {
+    font-size: 25px;
+}
+
+.horizontal-line {
+    height: 1px;
+    background-color: grey;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
 .image-links {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 10px;
     width: 100%;
     max-width: 800px;

@@ -4,7 +4,6 @@
     <File Path="deployedProjects.html" />
     <File Path="homepage.html" />
   </Folder>
-  <Folder Name="/Solution Items/Images/" />
   <Folder Name="/Solution Items/Styles/">
     <File Path="styles.css" />
   </Folder>
