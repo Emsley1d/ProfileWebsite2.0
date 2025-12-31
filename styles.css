@@ -4,8 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #eaeaea;
+    height: auto;
+    background-color: #eaeaea; /*#eaeaea;*/
 }
 
 .container {
@@ -22,13 +22,13 @@
     max-width: 800px;
     margin-bottom: 20px;
     justify-content: center;
-    height: 360px;
+    height: 370px;
 }
 
 
 .text-box {
-    padding: 10px;
-    background-color: #f0f0f0;
+    padding: 5px;
+    background-color: #eaeaea; /*#f0f0f0;*/
     text-align: left;
     /*border: 1px solid #ccc;*/
 }
@@ -36,7 +36,7 @@
 .box1 {
     flex: 1;
     max-width: 30%;
-    font-size: 50px;
+    font-size: 60px;
     margin-right: 10px;
 }
 
@@ -45,7 +45,21 @@
     max-width: 70%;
 }
 
+.profile-image {
+    width: 120px;      /* adjust as needed */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.heading {
+    margin: 0;
+    font-size: 60px;
+    line-height: 1;
+}
+
 .sub-heading {
+    margin-top: 5px;
     font-size: 25px;
 }
 
@@ -68,7 +82,7 @@
 
 .link-box {
     padding: 10px;
-    background-color: #f0f0f0;
+    background-color: #eaeaea; /*#f0f0f0;*/
     text-align: center;
     /*border: 1px solid #ccc;*/
 }
@@ -79,4 +93,12 @@
     display: block;
 }
 
+
+#content-pane {
+    display: none; /* Keep it hidden initially */
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+}
 

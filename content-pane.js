@@ -1,22 +1,50 @@
-    document.addEventListener("DOMContentLoaded", function () {
-        const careerButton = document.getElementById("career-button");
-        const contentPane = document.getElementById("content-pane");
+console.error("Script loaded");
 
-        careerButton.addEventListener("click", function (event) {
-            event.preventDefault(); 
+document.addEventListener("DOMContentLoaded", function () {
+    const contentPane = document.getElementById("content-pane");
+    const buttons = document.querySelectorAll(".content-loader");
+    console.error("hit");
 
+    if (!contentPane || buttons.length === 0) {
+        console.error("Missing #content-pane or .content-loader elements in the DOM.");
+        return;
+    }
 
-            fetch("career.html")
+    let isLoading = false; // Throttle overlapping fetch requests
+
+    buttons.forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            if (isLoading) return; // Skip if a request is already in progress
+
+            const file = this.dataset.file;
+            if (!file) {
+                console.error("No file specified for this button.");
+                return;
+            }
+
+            isLoading = true;
+
+            fetch(file)
                 .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Failed to load career.html");
-                    }
+                    isLoading = false;
+                    if (!response.ok) throw new Error(`Failed to load ${file}`);
                     return response.text();
                 })
                 .then(html => {
-                    
-                    contentPane.innerHTML = html;
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    contentPane.innerHTML = doc.body.innerHTML;
+
+                    // Ensure the content pane is visible and scroll to it
+                    contentPane.style.display = "block";
+                    window.scrollTo({ top: contentPane.offsetTop, behavior: "smooth" });
                 })
-                .catch(error => console.error("Error loading content:", error));
+                .catch(error => {
+                    isLoading = false;
+                    console.error("Error loading content:", error);
+                });
         });
     });
+});
