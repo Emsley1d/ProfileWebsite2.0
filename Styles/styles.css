@@ -28,7 +28,7 @@
 
 .text-box {
     padding: 5px;
-    background-color: #eaeaea; /*#f0f0f0;*/
+    background-color: #eaeaea; 
     text-align: left;
     /*border: 1px solid #ccc;*/
 }
@@ -46,7 +46,7 @@
 }
 
 .profile-image {
-    width: 120px;      /* adjust as needed */
+    width: 120px;     
     height: auto;
     display: block;
     margin-bottom: 20px;
@@ -91,8 +91,12 @@
     width: 100%;
     height: auto;
     display: block;
+    cursor: pointer;
 }
 
+.link-box button {
+    border: 0px;
+}
 
 #content-pane, #privacy-content-pane {
     display: none;
@@ -103,9 +107,9 @@
 }
 
 #privacy-content-pane {
-    border-bottom: 10px;
+    border-bottom: 10px; 
 }
 
-.policy p {
+.policy a {
     font-size: 10px;
 }
