@@ -1,50 +1,44 @@
-console.error("Script loaded");
-
-document.addEventListener("DOMContentLoaded", function () {
-    const contentPane = document.getElementById("content-pane");
+﻿document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".content-loader");
-    console.error("hit");
-
-    if (!contentPane || buttons.length === 0) {
-        console.error("Missing #content-pane or .content-loader elements in the DOM.");
-        return;
-    }
-
-    let isLoading = false; // Throttle overlapping fetch requests
 
     buttons.forEach(button => {
         button.addEventListener("click", function (event) {
             event.preventDefault();
 
-            if (isLoading) return; // Skip if a request is already in progress
-
             const file = this.dataset.file;
+            const targetId = this.dataset.target; // Get the data-target attribute
+            const targetPane = document.getElementById(targetId); // Fetch the corresponding target element
+
             if (!file) {
-                console.error("No file specified for this button.");
+                console.error("No file specified for this button/link.");
                 return;
             }
 
-            isLoading = true;
+            if (!targetPane) {
+                console.error(`No target element found with ID: ${targetId}`);
+                return;
+            }
 
             fetch(file)
                 .then(response => {
-                    isLoading = false;
-                    if (!response.ok) throw new Error(`Failed to load ${file}`);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${file}`);
+                    }
                     return response.text();
                 })
                 .then(html => {
+                    // Extract the content from the loaded HTML
                     const parser = new DOMParser();
                     const doc = parser.parseFromString(html, "text/html");
-                    contentPane.innerHTML = doc.body.innerHTML;
+                    targetPane.innerHTML = doc.body.innerHTML;
 
-                    // Ensure the content pane is visible and scroll to it
-                    contentPane.style.display = "block";
-                    window.scrollTo({ top: contentPane.offsetTop, behavior: "smooth" });
+                    // Make sure the target pane is visible
+                    targetPane.style.display = "block";
+
+                    // Optional: Scroll to the target pane
+                    window.scrollTo({ top: targetPane.offsetTop, behavior: "smooth" });
                 })
-                .catch(error => {
-                    isLoading = false;
-                    console.error("Error loading content:", error);
-                });
+                .catch(error => console.error(`Error loading content for target ID ${targetId}:`, error));
         });
     });
 });

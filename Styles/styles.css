@@ -94,11 +94,18 @@
 }
 
 
-#content-pane {
-    display: none; /* Keep it hidden initially */
+#content-pane, #privacy-content-pane {
+    display: none;
     width: 100%;
     max-width: 800px;
     height: auto;
     display: block;
 }
 
+#privacy-content-pane {
+    border-bottom: 10px;
+}
+
+.policy p {
+    font-size: 10px;
+}
