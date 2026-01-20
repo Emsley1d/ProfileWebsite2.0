@@ -49,6 +49,7 @@
     width: 120px;     
     height: auto;
     display: block;
+    margin-top: 15px;
     margin-bottom: 20px;
 }
 
@@ -114,14 +115,11 @@
     font-size: 10px;
 }
 
-/*
-.job-containter, .app-container {
-    background-color: #b6b6b6;
-    color: white;
-    margin-bottom: 40px;
-}
-*/
-
-.job-header {
+.job-header, .education-header {
     font-style: italic;
+}
+
+.job-container, .app-container .policy-container {
+    padding-bottom: 15px;
+    padding-bottom: 30px;
 }
