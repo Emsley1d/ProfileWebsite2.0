@@ -8,7 +8,7 @@
     background-color: #eaeaea; /*#eaeaea;*/
 }
 
-.container, #policy-content-pane {
+.container, #policy-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -104,15 +104,31 @@
     width: 100%;
     max-width: 800px;
     height: auto;
-    display: block;
 }
 
 #privacy-content-pane {
     border-bottom: 10px; 
 }
 
-.policy a {
+.policy a, .policy p {
     font-size: 10px;
+}
+
+.policy p {
+    text-align: left;
+}
+
+.policy {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+#policy-content-pane {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
 }
 
 .job-header, .education-header {
@@ -122,4 +138,27 @@
 .job-container, .app-container .policy-container {
     padding-bottom: 15px;
     padding-bottom: 30px;
+}
+
+
+/* BACK TO TOP BUTTON */
+.back-to-top-container {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.back-to-top-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.back-to-top-btn:hover {
+    background-color: #45a049;
 }
