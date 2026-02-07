@@ -32,6 +32,9 @@
                     const doc = parser.parseFromString(html, "text/html");
                     targetPane.innerHTML = doc.body.innerHTML;
                     targetPane.style.display = "block";
+
+                    initializeCollapsibles();
+
                     window.scrollTo({
                         top: targetPane.offsetTop,
                         behavior: "smooth"

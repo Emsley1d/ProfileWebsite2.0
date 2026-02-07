@@ -162,3 +162,56 @@
 .back-to-top-btn:hover {
     background-color: #45a049;
 }
+
+/* COLLAPSIBLE CONTAINER */
+.collapsible {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 20px;
+  align-items: stretch;
+}
+
+
+.collapsible-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 15px;
+  background: #eaeaea;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.collapsible-header h2 {
+  margin: 0;
+  font-size: 28px;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 0, 0, 0.3);
+  pointer-events: auto;
+}
+
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 20px;
+}
+
+.toggle-icon.open {
+  transform: rotate(180deg);
+}
+
+
+.collapsible-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  padding: 0 15px;
+}
+
+.collapsible.open .collapsible-content {
+  padding: 15px;
+}
