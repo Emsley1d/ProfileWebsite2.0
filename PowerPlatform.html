@@ -1,116 +1,170 @@
-<div class="power-container">
-<!-- ! HOLIDAY REQUEST APP -->
+﻿<div class="power-container">
+    <!-- ! HOLIDAY REQUEST APP -->
 
-        <h1>Power Platform Products</h1>
+    <h1>Power Platform Products</h1>
 
-        <p>I particularly enjoy working with Microsofts Power Platform.</p>
+    <p>I particularly enjoy working with Microsofts Power Platform.</p>
 
-        <h4>The below are just a selection of Power Apps I have created whilst working at Springboard IT.</h4>
+    <h4>The below are just a selection of Power Apps I have created whilst working at Springboard IT.</h4>
 
-        <div id="holidayApp-container" class="app-container">
+    <!-- HOLIDAY REQUEST APP -->
+    <div class="collapsible">
 
-            <h2>HOLIDAY REQUEST APP</h2>
+        <div class="collapsible-header">
+            <h3>HOLIDAY REQUEST APP</h3>
+            <span class="toggle-icon">▾</span>
+        </div>
 
-            <p>An app for requesting, editing, viewing and accepting/rejecting holiday requests.</p>
+        <div class="collapsible-content">
 
-            <p>The app is in use at multiple companies, the largest having 70+ employees. Holiday balances are by the hour and the app caters for different shift patterns and rota days.</p>
-            <p>The app features login functionality (via a pin/password set by each employee). This helps differentiate between multiple users using one email address (for example workshop@) and helps catalogues users as either a Team Member or Team manager.</p>
-            <p>Members can request holiday and edit or view their holiday requests. In addition, Managers can accept/reject holiday requests and view holiday for their specific team (or if part of higher managements/HR) the whole company.</p>
-            <p>All holiday data is held in SharePoint, with accepted holiday requests appearing on a Calendar view which is also visible in the Company's Microsoft Teams (where the app is also embedded).</p>
+            <div id="holidayApp-container" class="app-container">
 
-            <h4>Power Automate</h4>
+                <p>An app for requesting, editing, viewing and accepting/rejecting holiday requests.</p>
 
-            <p>There are multiple flows in Power Automate:</p>
+                <p>The app is in use at multiple companies, the largest having 70+ employees. Holiday balances are by the hour and the app caters for different shift patterns and rota days.</p>
+                <p>The app features login functionality (via a pin/password set by each employee). This helps differentiate between multiple users using one email address (for example workshop@) and helps catalogues users as either a Team Member or Team manager.</p>
+                <p>Members can request holiday and edit or view their holiday requests. In addition, Managers can accept/reject holiday requests and view holiday for their specific team (or if part of higher managements/HR) the whole company.</p>
+                <p>All holiday data is held in SharePoint, with accepted holiday requests appearing on a Calendar view which is also visible in the Company's Microsoft Teams (where the app is also embedded).</p>
 
-            <ul>
-                <li>
-                    On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individual's manager is and emails them details of the request, with accept/reject options.
-                    <br>
-                    If accepted:
+                <h4>Power Automate</h4>
+
+                <p>There are multiple flows in Power Automate:</p>
+
+                <ul>
+                    <li>
+                        On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individual's manager is and emails them details of the request, with accept/reject options.
+                        <br>
+                        If accepted:
                         <ul>
                             <li>
-                            An email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint, and it appears on the Calendar view.
+                                An email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint, and it appears on the Calendar view.
                             </li>
                         </ul>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+
+            </div>
 
         </div>
 
-        <div class="horizontal-line"></div>
+    </div>
 
-        <div id="timesheet-container" class="app-container">
+    <!-- TIMESHEET & LOCATION REGISTER APP -->
+    <div class="collapsible">
 
-            <h2>TIMESHEET/LOCATION REGISTER APP</h2>
-
-            <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event of a fire etc.</p>
-            <p>Tablets at each of the company locations have set locations.
-
-            <p>The app is use at one company but across a number of their sites.</p>
-            <p>A user simply enters their unique pin to clock in or out; if a user isn't currently clocked in they are done so upon input of their pin and vice versa if they are already clocked in at the point of entering their pin.</p>
-            <p>When specific users enter their pin they are presented with a number 
-
-
-            <h4>Power Automate</h4>
-
-            <p>There are multiple flows in Power Automate:</p>
-            <ul>
-                <li>On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individuals manager is and emails them details of the request; with accept/reject options.
-                If accept is pressed; an email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint and appears on the Calendar view.</li>
-            </ul>
+        <div class="collapsible-header">
+            <h3>TIMESHEET & LOCATION REGISTER APP</h3>
+            <span class="toggle-icon">▾</span>
         </div>
 
-        <div class="horizontal-line"></div>
+        <div class="collapsible-content">
 
-        <div id="loneWorking-container" class="app-container">
+            <div id="timesheet-container" class="app-container">
 
+                <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event of a fire etc.</p>
+                <p>Tablets at each of the company locations have set locations.</p>
 
-            <h2>LONE WORKING AND RISK ASSESSMENT APP</h2>
+                <p>The app is use at one company but across a number of their sites.</p>
+                <p>A user simply enters their unique pin to clock in or out; if a user isn't currently clocked in they are done so upon input of their pin and vice versa if they are already clocked in at the point of entering their pin.</p>
+                <p>When specific users enter their pin they are presented with a number</p>
 
-            <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event of a fire etc.</p>
-            <p>Tablets at each of the company locations have set locations.</p>
+                <h4>Power Automate</h4>
 
-            <p>The app is use at one company but across a number of their sites.</p>
-            <p>A user simply enters their unique pin to clock in or out; if a user isn't currently clocked in they are done so upon input of their pin and vice versa if they are already clocked in at the point of entering their pin.</p>
-            <p>When specific users enter their pin they are presented with a number</p>
+                <p>There are multiple flows in Power Automate:</p>
+                <ul>
+                    <li>On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individuals manager is and emails them details of the request; with accept/reject options.
+                        If accept is pressed; an email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint and appears on the Calendar view.</li>
+                </ul>
 
-
-            <h4>Power Automate</h4>
-
-            <p>There are multiple flows in Power Automate:</p>
-            <ul>
-                <li>On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individuals manager is and emails them details of the request; with accept/reject options.
-                If accept is pressed; an email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint and appears on the Calendar view.</li>
-        </div>
-
-        <div class="horizontal-line"></div>
-
-        <div id="loneWorking-container" class="app-container">
-
-
-            <h2>AGGREGATE REPORTING APP</h2>
-
-            <p>This Power App has been designed as a reporting application, bringing together data from seven separate SharePoint lists into a single, easy-to-use view. By consolidating this information in one place, users can quickly understand the overall picture without needing to navigate between multiple systems or lists.</p>
-            <p>The customer already uses a suite of Power Apps as part of their day-to-day processes. For that reason, the reporting solution was deliberately built as a Power App, rather than a standalone Power BI report. This ensures a consistent user experience, keeps everything within the same Microsoft 365 ecosystem, and allows the report to sit naturally alongside existing applications and workflows.</p>
- 
-            <h4>Power Automate</h4>
-            
-            <p><p>The report can be exported to PDF on demand using a simple button within the app. When the export button is clicked, it triggers a Power Automate flow that generates a PDF version of the report and automatically sends it to the intended recipient via email. This makes it easy to share up-to-date, formatted reports with stakeholders who may not have access to the app itself.</p>
-        </div>
-
-        <div class="horizontal-line"></div>
-
-        <div id="loneWorking-container" class="app-container">
-
-
-        <h1>SharePoint Dashboard Apps</h1>
-
-        <h3>I have also created a number of Power Apps that acts as SharePoint Dashboards; for example:</h3>
+            </div>
 
         </div>
 
-        <div class="back-to-top-container">
+    </div>
+
+
+    <!-- LONE WORKING AND RISK ASSESSMENT APP -->
+    <div class="collapsible">
+
+        <div class="collapsible-header">
+            <h3>LONE WORKING AND RISK ASSESSMENT APP</h3>
+            <span class="toggle-icon">▾</span>
+        </div>
+
+        <div class="collapsible-content">
+
+            <div id="loneWorking-container" class="app-container">
+
+                <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event of a fire etc.</p>
+                <p>Tablets at each of the company locations have set locations.</p>
+
+                <p>The app is use at one company but across a number of their sites.</p>
+                <p>A user simply enters their unique pin to clock in or out; if a user isn't currently clocked in they are done so upon input of their pin and vice versa if they are already clocked in at the point of entering their pin.</p>
+                <p>When specific users enter their pin they are presented with a number</p>
+
+                <h4>Power Automate</h4>
+
+                <p>There are multiple flows in Power Automate:</p>
+                <ul>
+                    <li>On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individuals manager is and emails them details of the request; with accept/reject options.
+                        If accept is pressed; an email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint and appears on the Calendar view.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- AGGREGATE REPORTING APP -->
+    <div class="collapsible">
+
+        <div class="collapsible-header">
+            <h3>AGGREGATE REPORTING APP</h3>
+            <span class="toggle-icon">▾</span>
+        </div>
+
+        <div class="collapsible-content">
+
+            <div id="aggregate-container" class="app-container">
+
+                <p>This Power App has been designed as a reporting application, bringing together data from seven separate SharePoint lists into a single, easy-to-use view. By consolidating this information in one place, users can quickly understand the overall picture without needing to navigate between multiple systems or lists.</p>
+                <p>The customer already uses a suite of Power Apps as part of their day-to-day processes. For that reason, the reporting solution was deliberately built as a Power App, rather than a standalone Power BI report. This ensures a consistent user experience, keeps everything within the same Microsoft 365 ecosystem, and allows the report to sit naturally alongside existing applications and workflows.</p>
+
+                <h4>Power Automate</h4>
+
+                <p>The report can be exported to PDF on demand using a simple button within the app. When the export button is clicked, it triggers a Power Automate flow that generates a PDF version of the report and automatically sends it to the intended recipient via email. This makes it easy to share up-to-date, formatted reports with stakeholders who may not have access to the app itself.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SHAREPOINT DASHBOARD APPS -->
+    <div class="collapsible">
+
+        <div class="collapsible-header">
+            <h3>SHAREPOINT DASHBOARD APPS</h3>
+            <span class="toggle-icon">▾</span>
+        </div>
+
+        <div class="collapsible-content">
+
+            <div id="sharepoint-container" class="app-container">
+
+                <h3>I have also created a number of Power Apps that acts as SharePoint Dashboards; for example:</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="back-to-top-container">
         <button type="button" id="back-to-top" class="back-to-top-btn">Back to Top</button>
-        </div>
+    </div>
 
 </div>
