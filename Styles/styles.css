@@ -150,17 +150,17 @@
 
 .back-to-top-btn {
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgba(75, 75, 95, 0.48);
+    color: black;
     border: none;
-    border-radius: 5px;
+    border-radius: 2px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
 }
 
 .back-to-top-btn:hover {
-    background-color: #45a049;
+    background-color: rgba(70, 70, 90, 0.8);
 }
 
 /* COLLAPSIBLE CONTAINER */
@@ -178,6 +178,7 @@
   align-items: center;
   cursor: pointer;
   padding-left: 10px;
+  height: 50px;
   background: #eaeaea;
   border-bottom: 1px solid #ccc;
   position: relative;
@@ -186,18 +187,25 @@
   background: rgba(103, 101, 102, 0.1);
 }
 
-.collapsible-header h2 {
+.collapsible-header h3 {
   margin: 0;
-  font-size: 28px;
   width: 100%;
   box-sizing: border-box;
   pointer-events: auto;
 }
 
+.header-text {
+    color: #666;
+    font-size: 0.9em;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+
 
 .toggle-icon {
   transition: transform 0.3s ease;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .toggle-icon.open {
@@ -214,4 +222,47 @@
 
 .collapsible.open .collapsible-content {
   padding: 15px;
+}
+
+/* GA PROJECT LAYOUT */
+
+.project-layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.project-text {
+    flex: 1;
+}
+
+.project-image {
+    flex-shrink: 0;
+    width: 250px; /* Adjust this to make images smaller/larger */
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+    .project-layout {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        width: 100%;
+        max-width: 300px;
+    }
 }
