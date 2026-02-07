@@ -83,9 +83,8 @@
 
 .link-box {
     padding: 10px;
-    background-color: #eaeaea; /*#f0f0f0;*/
+    background-color: #eaeaea;
     text-align: center;
-    /*border: 1px solid #ccc;*/
 }
 
 .link-box img {
@@ -161,6 +160,7 @@
 
 .back-to-top-btn:hover {
     background-color: rgba(70, 70, 90, 0.8);
+    color: white;
 }
 
 /* COLLAPSIBLE CONTAINER */
@@ -204,7 +204,7 @@
 
 
 .toggle-icon {
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
   font-size: 25px;
 }
 
@@ -239,7 +239,7 @@
 
 .project-image {
     flex-shrink: 0;
-    width: 250px; /* Adjust this to make images smaller/larger */
+    width: 250px;
 }
 
 .project-image img {
@@ -252,7 +252,7 @@
 }
 
 .project-image img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 /* Responsive layout for mobile */
@@ -265,4 +265,40 @@
         width: 100%;
         max-width: 300px;
     }
+}
+
+.tooltip-container {
+    position: relative;
+}
+
+.custom-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    margin-bottom: 8px;
+}
+
+.custom-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.8);
+}
+
+.tooltip-container:hover .custom-tooltip {
+    opacity: 1;
+    transition-delay: 0.3s;
 }
