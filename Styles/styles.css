@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     height: auto;
-    background-color: #eaeaea; /*#eaeaea;*/
+    background-color: #BDC3C7;
 }
 
 .container, #policy-container {
@@ -28,8 +28,9 @@
 
 .text-box {
     padding: 5px;
-    background-color: #eaeaea; 
+    background-color: #BDC3C7; 
     text-align: left;
+    color: #2C3E50;
     /*border: 1px solid #ccc;*/
 }
 
@@ -83,7 +84,7 @@
 
 .link-box {
     padding: 10px;
-    background-color: #eaeaea;
+    background-color: #BDC3C7;
     text-align: center;
 }
 
@@ -92,6 +93,10 @@
     height: auto;
     display: block;
     cursor: pointer;
+}
+
+.link-box img:hover {
+    transform: scale(1.1);
 }
 
 .link-box button {
@@ -179,19 +184,24 @@
   cursor: pointer;
   padding-left: 10px;
   height: 50px;
-  background: #eaeaea;
+  background-color: #2C3E50;
   border-bottom: 1px solid #ccc;
   position: relative;
   z-index: 999;
   pointer-events: auto;
-  background: rgba(103, 101, 102, 0.1);
 }
+
+.collapsible-header:hover {
+    background-color: #1a252f;
+}
+
 
 .collapsible-header h3 {
   margin: 0;
   width: 100%;
   box-sizing: border-box;
   pointer-events: auto;
+  color: #ECF0F1;
 }
 
 .header-text {
@@ -199,6 +209,7 @@
     font-size: 0.9em;
     margin-right: 20px;
     white-space: nowrap;
+    color: #ECF0F1;
 }
 
 
@@ -218,6 +229,7 @@
   max-height: 0;
   transition: max-height 0.4s ease;
   padding: 0 15px;
+  background-color: #ECF0F1;
 }
 
 .collapsible.open .collapsible-content {
