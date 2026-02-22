@@ -31,7 +31,6 @@
     background-color: white; 
     text-align: left;
     color: #2C3E50;
-    /*border: 1px solid #ccc;*/
 }
 
 .box1 {
@@ -228,7 +227,7 @@
   max-height: 0;
   transition: max-height 0.4s ease;
   padding: 0 15px;
-  background-color: #ECF0F1;
+  background-color: #f6f6f6;
 }
 
 .collapsible.open .collapsible-content {
