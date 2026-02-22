@@ -115,9 +115,40 @@ function initCarousels() {
       currentX = null;
     });
 
+    // Lightbox on image click — inside the forEach so 'images' is in scope
+    images.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        // Don't open lightbox if the user was swiping
+        if (Math.abs((currentX ?? startX) - startX) > 5) return;
+
+        const overlay = document.createElement('div');
+        overlay.className = 'carousel-lightbox';
+
+        const zoomed = document.createElement('img');
+        zoomed.src = img.src;
+        zoomed.alt = img.alt;
+        zoomed.className = 'carousel-lightbox-img';
+
+        overlay.appendChild(zoomed);
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener('click', () => overlay.remove());
+
+        const onKey = (e) => {
+          if (e.key === 'Escape') {
+            overlay.remove();
+            document.removeEventListener('keydown', onKey);
+          }
+        };
+        document.addEventListener('keydown', onKey);
+      });
+    });
+
     // Initialise
     updateUI();
   });
 }
+
 
 document.addEventListener('DOMContentLoaded', initCarousels);
