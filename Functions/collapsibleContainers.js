@@ -1,50 +1,85 @@
 function initializeCollapsibles() {
   console.log("Initializing collapsibles");
-  const containers = document.querySelectorAll(".collapsible");
+  const containers = Array.from(document.querySelectorAll(".collapsible"));
   console.log("Found containers:", containers.length);
-  
+
+  function closeContainer(container) {
+    const content = container.querySelector(".collapsible-content");
+    const icon = container.querySelector(".toggle-icon");
+    if (!content) return;
+
+    content.style.maxHeight = "0px";
+    container.classList.remove("open");
+    icon?.classList.remove("open");
+  }
+
+  function openContainer(container, { scroll = true } = {}) {
+    const header = container.querySelector(".collapsible-header");
+    const content = container.querySelector(".collapsible-content");
+    const icon = container.querySelector(".toggle-icon");
+    if (!content) return;
+
+    // Close all others first
+    containers.forEach(c => {
+      if (c !== container) closeContainer(c);
+    });
+
+    // Open this one
+    container.classList.add("open");
+    icon?.classList.add("open");
+
+    requestAnimationFrame(() => {
+      content.style.maxHeight = content.scrollHeight + "px";
+    });
+
+    if (scroll) {
+      // scroll to the header for nicer positioning
+      (header || container).scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  // Start collapsed + click binding
   containers.forEach(container => {
     const header = container.querySelector(".collapsible-header");
     const content = container.querySelector(".collapsible-content");
     const icon = container.querySelector(".toggle-icon");
     if (!header || !content) return;
-    
-    // Start collapsed
-    content.style.maxHeight = "0px";
-    container.classList.remove("open");
-    icon?.classList.remove("open");
-    
+
+    closeContainer(container);
+
     header.addEventListener("click", () => {
-      console.log("header clicked");
       const isOpen = container.classList.contains("open");
 
-      // collapse all other sections first
-      containers.forEach(otherContainer => {
-        if (otherContainer !== container) {
-          const otherContent = otherContainer.querySelector(".collapsible-content");
-          const otherIcon = otherContainer.querySelector(".toggle-icon");
-          otherContent.style.maxHeight = "0px";
-          otherContainer.classList.remove("open");
-          otherIcon?.classList.remove("open");
-        }
-      });
-
       if (isOpen) {
-        // CLOSE
-        content.style.maxHeight = "0px";
-        container.classList.remove("open");
-        icon?.classList.remove("open");
+        closeContainer(container)
+        // history.replaceState(null, "", window.location.pathname + window.location.search);
       } else {
-        // OPEN
-        container.classList.add("open");
-        icon?.classList.add("open");
-        requestAnimationFrame(() => {
-          content.style.maxHeight = content.scrollHeight + "px";
-        });
+        openContainer(container);
+        // Update the URL so it becomes a shareable link
+        if (container.id) {
+          history.replaceState(null, "", `#${container.id}`);
+        }
       }
     });
   });
+
+  // Open section from hash on load
+  function openFromHash({ scroll = true } = {}) {
+    const hash = window.location.hash?.replace("#", "");
+    if (!hash) return;
+
+    const target = document.getElementById(hash);
+    if (!target || !target.classList.contains("collapsible")) return;
+
+    openContainer(target, { scroll });
+  }
+
+ 
+  // small timeout helps if fonts/layout change heights
+  setTimeout(() => openFromHash({ scroll: false }), 0);
+
+  // back/forward buttons update hash => open that section
+  window.addEventListener("hashchange", () => openFromHash({ scroll: true }));
 }
 
-// Call on initial page load (for any collapsibles already on the page)
 document.addEventListener("DOMContentLoaded", initializeCollapsibles);
