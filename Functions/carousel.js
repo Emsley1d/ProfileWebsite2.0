@@ -49,8 +49,6 @@ function initCarousels() {
 
     function updateUI() {
       track.style.transform = `translateX(${-index * 100}%)`;
-      if (prevBtn) prevBtn.disabled = index === 0;
-      if (nextBtn) nextBtn.disabled = index === images.length - 1;
       dots.forEach((d, i) =>
         d.setAttribute('aria-current', i === index ? 'true' : 'false')
       );
@@ -59,7 +57,7 @@ function initCarousels() {
     }
 
     function goTo(i) {
-      index = Math.max(0, Math.min(images.length - 1, i));
+      index = ((i % images.length) + images.length) % images.length;
       updateUI();
     }
 

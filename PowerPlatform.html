@@ -17,16 +17,15 @@
 
             <div id="holidayApp-container" class="app-container">
 
-
                 <div class="img-carousel" data-carousel>
                     <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/test1.png" alt="Holiday app - request screen" loading="lazy">
-                          <img src="images/test2.png" alt="Holiday app - manager approval screen" loading="lazy">
-                          <img src="images/test3.png" alt="Holiday app - calendar view" loading="lazy">
-                          <img src="images/test4.png" alt="Holiday app - calendar view" loading="lazy">
+                          <img src="images/test1.png" alt="Holiday app - request screen">
+                          <img src="images/test2.png" alt="Holiday app - manager approval">
+                          <img src="images/test3.png" alt="Holiday app - calendar view">
+                          <img src="images/test4.png" alt="Holiday app - calendar view">
                         </div>
                     </div>
 
@@ -47,11 +46,13 @@
                 <p>I created the below in SharePoint:</p>
 
                 <ul>
-                    <li>Holday Data - a list of all employees including their; shift pattern, manager, holiday balance, holiday carried over from the previous year,  </li>
-                    <li>Rota Days - a list containing employees who work rota day's and which day(s) of the week they do not work.</p>
+                    <li>Holday Data - a list of all employees including their; shift pattern, manager, remaining holiday balance, holiday carried over from the previous year and total holiday balance.</li>
+                    <li>Rota Days - a list containing employees who work rota day's and which day(s) of the week they do not work.</li>
                     <li>Public Holidays - a list of all public holidays and (if required) any days the whole company is closed (for example ordinary working days between Christmas and New Year.</li>
-                    <li>Requested Holiday - </li>
-                    <li>Requested Holiday Expanded - </li>
+                    <li>Requested Holiday - a list of all holiday requests, who requested the holiday, the start and end date, whether the holiday was accepted/rejected and holiday balance to be deducted.</li>
+                    <li>Accepted Holiday Expanded - a list of any accepted holiday requests; listing each individual days's holiday between the requested dates, whether its a weekened, rota day or public holiday, whether each of the listed days need to be deducted from an individuals holiday balance and (if applicable) the balance to be deduced for each day</li>  
+                    <li>Holiday Data - a calendar view of all accepted holiday embedded in Microsoft Teams.</p>
+                </ul>
 
                 <h4>Power Automate</h4>
 
@@ -95,14 +96,37 @@
 
         <div class="collapsible-content">
 
+            <div class="img-carousel" data-carousel>
+                    <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
+                          <img src="images/test1.png" alt="Holiday app - request screen">
+                          <img src="images/test2.png" alt="Holiday app - manager approval screen">
+                          <img src="images/test3.png" alt="Holiday app - calendar view">
+                          <img src="images/test4.png" alt="Holiday app - calendar view">
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
+            </div>
+
             <div id="timesheet-container" class="app-container">
 
-                <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event of a fire etc.</p>
-                <p>Tablets at each of the company locations have set locations.</p>
-
-                <p>The app is use at one company but across a number of their sites.</p>
+                <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event of a fire or site evacuation etc.</p>
+                <p>The app is use at one company but across a number of their sites; each version of app is set to a different site location.</p>
                 <p>A user simply enters their unique pin to clock in or out; if a user isn't currently clocked in they are done so upon input of their pin and vice versa if they are already clocked in at the point of entering their pin.</p>
                 <p>When specific users enter their pin they are presented with a number</p>
+
+                <h4>SharePoint</h4>
+
+                <p>I created the below in SharePoint:</p>
+
+                <ul>
+                    <li></li>
+                </ul>
 
                 <h4>Power Automate</h4>
 
@@ -129,6 +153,23 @@
 
         <div class="collapsible-content">
 
+            <div class="img-carousel" data-carousel>
+                    <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
+                          <img src="images/test1.png" alt="Holiday app - request screen" loading="lazy">
+                          <img src="images/test2.png" alt="Holiday app - manager approval screen" loading="lazy">
+                          <img src="images/test3.png" alt="Holiday app - calendar view" loading="lazy">
+                          <img src="images/test4.png" alt="Holiday app - calendar view" loading="lazy">
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
+            </div>
+
             <div id="loneWorking-container" class="app-container">
 
                 <p>The app enables surveyors to complete a site safesty risk assessment before undertaking a site survey. The questions are dynamic; the questions presented to the surveyor changed based upon previous answers.</p>
@@ -151,7 +192,7 @@
                     <li>A flow runs every 5 minutes to check for any 'open' records where the reminder time is in the past (when compared to the current flow start time). For any records that are; a notification is sent to the user. If a user has complated the job in question there is a cancel nofitifcations option within the app. This updates the record to closed.</li>
                     <li>Another flow runs each night and moves any completed reminder entries for that day to a reminders archive list.</li>
                     <li>A flow is triggered on creation of a row on the Accident Report list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox.</li>
-                </ul
+                </ul>
 
             </div>
 
@@ -170,6 +211,23 @@
 
         <div class="collapsible-content">
 
+            <div class="img-carousel" data-carousel>
+                    <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
+                          <img src="images/test1.png" alt="Holiday app - request screen" loading="lazy">
+                          <img src="images/test2.png" alt="Holiday app - manager approval screen" loading="lazy">
+                          <img src="images/test3.png" alt="Holiday app - calendar view" loading="lazy">
+                          <img src="images/test4.png" alt="Holiday app - calendar view" loading="lazy">
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
+            </div>
+
             <div id="aggregate-container" class="app-container">
 
                 <p>This Power App has been designed as a reporting application, bringing together data from seven separate SharePoint lists into a single, easy-to-use view. By consolidating this information in one place, users can quickly understand the overall picture without needing to navigate between multiple systems or lists.</p>
@@ -178,7 +236,6 @@
                 <h4>Power Automate</h4>
 
                 <p>The report can be exported to PDF on demand using a simple button within the app. When the export button is clicked, it triggers a Power Automate flow that generates a PDF version of the report and automatically sends it to the intended recipient via email. This makes it easy to share up-to-date, formatted reports with stakeholders who may not have access to the app itself.</p>
-
             </div>
 
         </div>
@@ -198,8 +255,12 @@
 
             <div id="sharepoint-container" class="app-container">
 
-                <p>I have also created a number of Power Apps that acts as SharePoint Dashboards; for example:</p>
+                <p>I have created a number of Power Apps that are embedded in SharePoint sites; acting as Dashboards that greet users and supplIES them with pertintent information ordinarily buried within lists on the SharePoint site.</p>
+                <p>The below example includes relevant links to different sections of the SharePoint site; number of working hours logged by the user for the week, current location (be it remote or different office sites - as requested by the client to help staff identify when records need to be updated) and relevant details from a users last job.</p>
+                <p>The aesthetic of the dashboard is designed to be in keeping with the company's website and branding.</p>
 
+                <img class="dashboard-app" src="images/test4.png" alt="Holiday app - calendar view">
+                
             </div>
 
         </div>

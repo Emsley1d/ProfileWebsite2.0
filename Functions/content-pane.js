@@ -34,6 +34,28 @@
                     targetPane.style.display = "block";
 
                     initializeCollapsibles();
+                    // Wait for lazy images to load before initialising carousels
+    const lazyImages = Array.from(targetPane.querySelectorAll('img[loading="lazy"]'));
+    if (lazyImages.length === 0) {
+        initCarousels();
+    } else {
+        let loaded = 0;
+        lazyImages.forEach(img => {
+            if (img.complete) {
+                loaded++;
+                if (loaded === lazyImages.length) initCarousels();
+            } else {
+                img.addEventListener('load', () => {
+                    loaded++;
+                    if (loaded === lazyImages.length) initCarousels();
+                });
+                img.addEventListener('error', () => {
+                    loaded++; // count errors too so we don't stall
+                    if (loaded === lazyImages.length) initCarousels();
+                });
+            }
+        });
+    }
 
                     window.scrollTo({
                         top: targetPane.offsetTop,
