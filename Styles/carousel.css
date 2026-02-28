@@ -99,3 +99,12 @@
   border-radius: 4px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.6);
 }
+
+.carousel-caption {
+  margin: 0;
+  padding: 6px 12px 8px;
+  font-size: 0.75rem;
+  color: #444;
+  text-align: center;
+  min-height: 2.4em; /* stops layout jump when caption length varies */
+}
