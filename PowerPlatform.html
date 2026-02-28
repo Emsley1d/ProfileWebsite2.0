@@ -158,10 +158,12 @@
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/test1.png" alt="Holiday app - request screen" loading="lazy">
-                          <img src="images/test2.png" alt="Holiday app - manager approval screen" loading="lazy">
-                          <img src="images/test3.png" alt="Holiday app - calendar view" loading="lazy">
-                          <img src="images/test4.png" alt="Holiday app - calendar view" loading="lazy">
+                          <img src="images/LB/PPLBPA1.png" alt="Holiday app - request screen">
+                          <img src="images/LB/PPLBPA5.png" alt="Holiday app - manager approval screen">
+                          <img src="images/LB/PPLBPA4.png" alt="Holiday app - manager approval screen">
+                          <img src="images/LB/PPLBPA2.png" alt="Holiday app - calendar view">
+                          <img src="images/LB/PPLBPA7.png" alt="Holiday app - calendar view">
+                          <img src="images/LB/PPLBEmail.png" alt="Holiday app - calendar view">
                         </div>
                     </div>
 
@@ -173,25 +175,33 @@
             <div id="loneWorking-container" class="app-container">
 
                 <p>The app enables surveyors to complete a site safesty risk assessment before undertaking a site survey. The questions are dynamic; the questions presented to the surveyor changed based upon previous answers.</p>
-                <p>If the risk is deemed to great the app instructs users to contact the office for further advice or to cancel the survey altogether.</p>
-                <p>In addition to the safety questions; the app allows users to take and upload photographs, tag specific risks and add and save new risks that then become a permanent addition to the selectable risks.</p>
+                <p>If the risk is deemed too great the app instructs users to contact the office for further advice or to cancel the survey altogether.</p>
+                <p>In addition to the safety questions; the app allows users to take and upload photographs and tag specific risks. If the risk doesn't already exist on a Risk Register SharePoint list then the risk is added so it becomes a permanent addition to the risk options selectable through a drop down within the app.</p>
                 <p>The app allows users to confirm who they are working with; or if working alone to set a reminder (for 1, 2 or 3 hours based upon risk) to contact and check in with their office.</p>
-                <p>The client later requested the addition of an Accident Report form; giving users the ability to record and submit details of any accidents direct from site. The form could collect third-party details and had options to upload photos.</p>
+                <p>The client later requested the addition of an Accident Report form; giving users the ability to record and submit details of any accidents direct from site. The form could collect third-party details, a summary of the accident</p>
+                <p>The client required that an accident location be recorded in the format of What 3 Words. The W3W API proved too costly </p>
+
 
 
                 <h4>SharePoint</h4>
 
                 <p>I created the below in SharePoint:</p>
 
-
+                <ul>
+                    <li>Risk Assessments List</li>
+                    <li>Notifications List</li>
+                    <li>Archived Notifications List</li>
+                    <li>Accident Reports List</li>
+                </ul>
 
                 <h4>Power Automate</h4>
 
                 <p>There are multiple flows in Power Automate:</p>
                 <ul>
-                    <li>A flow runs every 5 minutes to check for any 'open' records where the reminder time is in the past (when compared to the current flow start time). For any records that are; a notification is sent to the user. If a user has complated the job in question there is a cancel nofitifcations option within the app. This updates the record to closed.</li>
-                    <li>Another flow runs each night and moves any completed reminder entries for that day to a reminders archive list.</li>
-                    <li>A flow is triggered on creation of a row on the Accident Report list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox.</li>
+                    <li>A flow is triggered upon creation of a row on the Risk Assessment list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox. The flow also checks to see if any risks submitted by the surveyor are unqique; in which case the flow adds them to the Risk Reigster SharePoint List.</li>
+                    <li>A flow runs every 5 minutes to check for any 'open' records where the reminder time is in the past (when compared to the current flow start time). For any records that are; a push notification is sent to the user. If a user has complated the job in question there is a cancel nofitifcations option within the app. This updates the record to closed.</li>
+                    <li>Another scheduled flow runs at 5:30pm; moves any closed reminder entries for that day to a reminders archive list and emails a list of 'open' reminders to a central mailbox so engineers can be contacted. </li>
+                    <li>A flow is triggered upon creation of a row on the Accident Report list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox.</li>
                 </ul>
 
             </div>
@@ -216,10 +226,12 @@
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/test1.png" alt="Holiday app - request screen" loading="lazy">
-                          <img src="images/test2.png" alt="Holiday app - manager approval screen" loading="lazy">
-                          <img src="images/test3.png" alt="Holiday app - calendar view" loading="lazy">
-                          <img src="images/test4.png" alt="Holiday app - calendar view" loading="lazy">
+                          <img src="images/GD/PPGD.png" alt="Holiday app - request screen" >
+                          <img src="images/GD/PPGD2.png" alt="Holiday app - manager approval screen" >
+                          <img src="images/GD/PPGD1.png" alt="Holiday app - calendar view" >
+                          <img src="images/GD/PPGDPDF.png" alt="Holiday app - calendar view" >
+                          <img src="images/GD/PPGDPDF2.png" alt="Holiday app - calendar view" >
+
                         </div>
                     </div>
 
@@ -230,7 +242,7 @@
 
             <div id="aggregate-container" class="app-container">
 
-                <p>This Power App has been designed as a reporting application, bringing together data from seven separate SharePoint lists into a single, easy-to-use view. By consolidating this information in one place, users can quickly understand the overall picture without needing to navigate between multiple systems or lists.</p>
+                <p>This Power App was designed as a reporting application, bringing together data from seven separate SharePoint lists into a single, easy-to-use view. By consolidating this information in one place, users can quickly understand the overall picture without needing to navigate between multiple systems or lists.</p>
                 <p>The customer already uses a suite of Power Apps as part of their day-to-day processes. For that reason, the reporting solution was deliberately built as a Power App, rather than a standalone Power BI report. This ensures a consistent user experience, keeps everything within the same Microsoft 365 ecosystem, and allows the report to sit naturally alongside existing applications.</p>
 
                 <h4>Power Automate</h4>
@@ -255,11 +267,11 @@
 
             <div id="sharepoint-container" class="app-container">
 
-                <p>I have created a number of Power Apps that are embedded in SharePoint sites; acting as Dashboards that greet users and supplIES them with pertintent information ordinarily buried within lists on the SharePoint site.</p>
+                <p>I have created a number of Power Apps that are embedded in SharePoint sites; acting as Dashboards that greet users and supplies them with pertintent information ordinarily buried within lists on the SharePoint site.</p>
                 <p>The below example includes relevant links to different sections of the SharePoint site; number of working hours logged by the user for the week, current location (be it remote or different office sites - as requested by the client to help staff identify when records need to be updated) and relevant details from a users last job.</p>
                 <p>The aesthetic of the dashboard is designed to be in keeping with the company's website and branding.</p>
 
-                <img class="dashboard-app" src="images/test4.png" alt="Holiday app - calendar view">
+                <img class="dashboard-app" src="images/ED/PPDashboard1.png" alt="SharePoint Dashboard">
                 
             </div>
 
