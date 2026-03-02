@@ -24,6 +24,7 @@
   height: 320px;          
   object-fit: contain;    
   background: #d9d9d9;
+  padding-top: 5px;
 }
 
 .carousel-btn {
@@ -68,12 +69,11 @@
 }
 
 .carousel-dot {
-  width: 10px;
+  width: 8px;
   height: 10px;
   border-radius: 999px;
   border: 0;
   cursor: pointer;
-  border: 1px solid #646464;
 
 }
 
@@ -106,5 +106,6 @@
   font-size: 0.75rem;
   color: #444;
   text-align: center;
-  min-height: 2.4em; /* stops layout jump when caption length varies */
+  background-color: #d9d9d9;
+  min-height: 3.4em; /* stops layout jump when caption length varies */
 }

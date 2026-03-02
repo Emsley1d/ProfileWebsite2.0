@@ -3,7 +3,7 @@
 
     <h1>Power Platform Solutions</h1>
 
-    <p>Below is a small seleciton of Power Apps I created whilst employed at Springboard IT.</p>
+    <p>Below is a small selection of Power Apps I created whilst employed at Springboard IT.</p>
 
     <!-- HOLIDAY REQUEST APP -->
     <div class="collapsible" id="holiday-app">
@@ -22,17 +22,18 @@
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/SY/PPSYC.png" data-caption="The main request screen where employees submit holiday requests.">
-                          <img src="images/SY/PPSYC1.png" data-caption="Calendar view showing available and blocked dates.">
-                          <img src="images/SY/PPSYC2.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC3.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC4.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC5.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC6.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC7.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC8.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC9.png" alt="Holiday app - request screen">
-                          <img src="images/SY/PPSYC10.png" alt="Holiday app - request screen">
+                          <img src="images/SY/PPSYC.png" data-caption="The opening screen behind which I establish whether a user has their own email address or falls under a shared email address.">
+                          <!-- NEED LOGIN SCREEN -->
+                          <img src="images/SY/PPSYC1.png" data-caption="The home screen that greets a logged in user, the last two buttons are greyed out and disabled for anyone who isn't a manager.">
+                          <img src="images/SY/PPSYC2.png" data-caption="The main holiday options screen showing the user's current holiday balance.">
+                          <img src="images/SY/PPSYC4.png" data-caption="The Full Days request screen - the 'Hours Being Requested' figure updates dynamically upon entry of the two and from dates.">
+                          <img src="images/SY/PPSYC5.png" data-caption="The AM request screen (PM is virtually the same).">
+                          <img src="images/SY/PPSYC6.png" data-caption="The Set Hours request screen; the client required a user be able to request up to 3 hours off; anymore would have to be booked as AM or PM.">
+                          <img src="images/SY/PPSYC7.png" data-caption="The screen that greets users upon succesful submission of a request - after 5 seconds they are automatically nagivated back to the Home screen.">
+                          <img src="images/SY/PPSYC8.png" data-caption="A screen showing a user any Pending Requests they have and providing them with an option to delete if no longer required.">
+                          <img src="images/SY/PPSYC9.png" data-caption="A screen showing a manager outstanding requests for their entire team.">
+                          <!-- FIX PPSY10 -->
+                          <img src="images/SY/PPSY10.png" alt="Holiday app - request screen">
                         </div>
                     </div>
 
@@ -43,19 +44,22 @@
                     <p class="carousel-caption" aria-live="polite"></p>
                  </div>
 
-                <p>An app for requesting, editing, viewing and accepting/rejecting holiday requests.</p>
+                <p>An app for requesting, viewing, deleting/cancelling and accepting/rejecting holiday requests.</p>
 
                 <p>The app is in use at multiple companies, the largest having 70+ employees. Holiday balances are by the hour and the app caters for different shift patterns and rota days.</p>
                 <p>The app features login functionality via a pin/password set by each employee (due to some devices being shared) and helps catalogues users as either a Team Member or Team Manager.</p>
                 <p>Members can request holiday and edit or view their holiday requests. In addition, Managers can accept/reject holiday requests and view holiday for their specific team (or if part of higher managements/HR) the whole company.</p>
                 <p>All holiday data is held in SharePoint, with accepted holiday requests appearing on a Calendar view which is also visible in the Company's Microsoft Teams (where the app is also embedded).</p>
+                <p>For ease of use; the app allows staff to include weekends, public holidays and rota days in their request meaning they do not have to submit multiple for a period which includes any of the aforementioned.</p>
+                <p>Galleries allow individuals to see any pending and any accepted requests. Team Managers have additional screens allowing them to see all pending and all booked holiday for their teams.</p>
+
 
                 <h4>SharePoint</h4>
 
                 <p>I created the below in SharePoint:</p>
 
                 <ul>
-                    <li>Holday Data - a list of all employees including their; shift pattern, manager, remaining holiday balance, holiday carried over from the previous year and total holiday balance.</li>
+                    <li>Holiday Data - a list of all employees including their; shift pattern, manager, remaining holiday balance, holiday carried over from the previous year and total holiday balance.</li>
                     <li>Rota Days - a list containing employees who work rota day's and which day(s) of the week they do not work.</li>
                     <li>Public Holidays - a list of all public holidays and (if required) any days the whole company is closed (for example ordinary working days between Christmas and New Year.</li>
                     <li>Requested Holiday - a list of all holiday requests, who requested the holiday, the start and end date, whether the holiday was accepted/rejected and holiday balance to be deducted.</li>
@@ -69,8 +73,9 @@
 
                 <ul>
                     <li>
-                        On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individual's manager is and emails them details of the request, with accept/reject options.
-                        <br><br>
+                        On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individual's manager is and emails them details of the request, with accept/reject options and corresponding emails sent in reply to the individual who requested the holiday..
+                    </li>
+                    <!--
                         If accepted:
                         <ul>
                             <li>
@@ -86,7 +91,12 @@
                             </li>
 
                         </ul>
-                    </li>
+                    -->
+                    <li>If a holiday request or booked holiday is cancelled, the request/holiday is updated with a deleted status (but not actually deleted - a stipulation from the client) and an email is sent to the individual's manager to advise them of the cancelled holiday.</li>
+                    <li>When a holiday request is accepted another flow runs; this adds each individual day of the request to another SharePoint list. The flow checks each day to establish if it's a weekend, a public holiday, an individual's rota day or whether the day is in the current holiday year or the next. If any of these are true then 0 hours are attributed to each day. For all other days another SharePoint list is checked; this includes their shift patterns. Corresponding hours worked are then attributed to each day. Finally the app runs through all days booked for that request, totals the hours against each day and deducts them from a user's remaining balance.</li>
+                    <li>When a holiday request is accepted another flow runs; this adds each individual day of the request to another SharePoint list. The flow checks each day to establish if it's a weekend, a public holiday or an individual's rota day. If any of these are true then 0 hours are attributed to each day. For all other days another SharePoint list is checked; this includes their shift patterns. Corresponding hours worked are then attributed to each day. Finally the app runs through all days booked for that request, totals the hours against each day and deducts them from a user's remaining balance.</li>
+
+                    
                 </ul>
 
             </div>
@@ -95,7 +105,7 @@
 
     </div>
 
-    <!-- ALCOHOL AND DRUG SCREENING APP 
+    <!-- ALCOHOL AND DRUG SCREENING APP     -->
     <div class="collapsible" id="holiday-app">
 
         <div class="collapsible-header">
@@ -120,39 +130,29 @@
                         </div>
                     </div>
 
+                    <!-- get rest result images -->
+
                     <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
 
                     <div class="carousel-dots" aria-label="Carousel navigation"></div>
+
+                    <p class="carousel-caption" aria-live="polite"></p>
                  </div>
 
-                <p>An app for requesting immediate or planned alcohol and drug tests for a company that runs with a fleet of vehichles.</p>
+                <p>An app for requesting alcohol and drug tests and (recording the results) for a company running a fleet of vehichles.</p>
 
-                <p>Immediate tests were requested at the time of accidents or if there were suspicions around a driver.</p>
-                <p>Planned tests were for screening new employees or for scheduling random tests.</p>
+                <p>Immediate tests were requested at the time of an accident or if there were suspicions around a driver.</p>
+                <p>Planned tests were for screening new employeesor for scheduling random tests.</p>
+                <p>I was provided with a front end design by the client which I followed.</p>
 
-
-
-                <h4>SharePoint</h4>
-
-                <p>I created the below in SharePoint:</p>
-
-                <ul>
-                    <li>Holday Data - a list of all employees including their; shift pattern, manager, remaining holiday balance, holiday carried over from the previous year and total holiday balance.</li>
-                    <li>Rota Days - a list containing employees who work rota day's and which day(s) of the week they do not work.</li>
-                    <li>Public Holidays - a list of all public holidays and (if required) any days the whole company is closed (for example ordinary working days between Christmas and New Year.</li>
-                    <li>Requested Holiday - a list of all holiday requests, who requested the holiday, the start and end date, whether the holiday was accepted/rejected and holiday balance to be deducted.</li>
-                    <li>Accepted Holiday Expanded - a list of any accepted holiday requests; listing each individual days's holiday between the requested dates, whether its a weekened, rota day or public holiday, whether each of the listed days need to be deducted from an individuals holiday balance and (if applicable) the balance to be deduced for each day</li>  
-                    <li>Holiday Data - a calendar view of all accepted holiday embedded in Microsoft Teams.</p>
-                </ul>
+                <!-- how did test results work? -->
 
                 <h4>Power Automate</h4>
 
                 <p>There are multiple flows in Power Automate:</p>
 
                 <ul>
-                    <li>
-                      
-                    </li>
+                    <li>Upon creation of a test request; a flow was triggered to notify relevant parties. Different groups of users were emailed depeneding on the test type. All emails were sent simultaneously to ensure the individuals towards the top of each list weren't shouldering the burden of completing the majority of tests. Upon the first acceptance (via email buttons) all subsequent attempts to accept failed. The individual who accepted the test was then emailed further details of the test; helping to protect the identity of the individual to be tested and prevent any potential favourtism. If the test in question was planned then an entry was added to a SharePoint calendar.</li>
                 </ul>
 
             </div>
@@ -160,7 +160,7 @@
         </div>
 
     </div>
-    -->
+
 
     <!-- TIMESHEET & LOCATION REGISTER APP -->
     <div class="collapsible" id="timesheet-app">
@@ -177,9 +177,10 @@
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/RT/PPRT1.png" alt="Holiday app - request screen">
-                          <img src="images/RT/PPRT2.png" alt="Holiday app - request screen">
-                          <img src="images/RT/PPRT3.png" alt="Holiday app - request screen">
+                          <img src="images/RT/PPRT1.png" data-caption="The home screen into which a user enters their unqiue PIN number.">
+                          <img src="images/RT/PPRT3.png" data-caption="The clock out screen (clock in being virtually the same.)">
+                          <img src="images/RT/PPRT2.png" data-caption="The screen that greets a Manager/Fire Warden upon login, the Clock In (or Out) button navigates them to the screen captured in the previous screenshoot. Settings allows them to change the registered location of the tablet or view a list of currently clocked in users.">
+                          <!-- Additional screenshots for fire warden and location screens -->
                         </div>
                     </div>
 
@@ -235,16 +236,19 @@
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/LB/PPLBPA1.png" alt="Holiday app - request screen">
-                          <img src="images/LB/PPLBPA5.png" alt="Holiday app - manager approval screen">
-                          <img src="images/LB/PPLBPA4.png" alt="Holiday app - manager approval screen">
-                          <img src="images/LB/PPLBPA2.png" alt="Holiday app - calendar view">
-                          <img src="images/LB/PPLBPA7.png" alt="Holiday app - calendar view">
-                          <img src="images/LB/PPLBEmail.png" alt="Holiday app - calendar view">
-                          <img src="images/LB/PPLBNotification.png" alt="Holiday app - calendar view">
-                          <img src="images/LB/PPLBNotification2.png" alt="Holiday app - calendar view">
-                          <img src="images/LB/PPLBTimer.png" alt="Holiday app - calendar view">
-                          <img src="images/LB/PPLBEmail.png" alt="Holiday app - calendar view">
+                          <img src="images/LB/PPLBPA1.png" data-caption="The app home screen. If a user has any active reminder timers a third button is displayed.">
+                          <img src="images/LB/PPLBPA8.png" data-caption="The Risk Assessment site survey.">
+                          <img src="images/LB/PPLBPA9.png" data-caption="Some of the dynamic questioning on display.">
+                          <img src="images/LB/PPLBPA10.png" data-caption="The Risk Assessment form continued.">
+                          <img src="images/LB/PPLBPA2.png" data-caption="If the risk is deemed to great then upon submission a user is asked to contact their H&S Manager.">
+                          <img src="images/LB/PPLBPA7.png" data-caption="If the risk is acceptable a user is met with the above.">
+                          <img src="images/LB/PPLBPA5.png" data-caption="The Accident Report screen.">
+                          <img src="images/LB/PPLBPA4.png" data-caption="The Accident Report screen continued.">
+                          <img src="images/LB/PPLBNotification.png" data-caption="The push notification a user receives as a reminder to contact the office.">
+                          <img src="images/LB/PPLBNotification2.png" data-caption="More of the push notification.">
+                          <img src="images/LB/PPLBTimer.png" data-caption="The push notification a user receives as a reminder to contact the office.">
+                          <img src="images/LB/PPLBEmail.png" data-caption="An accident report including any attachments the user orginally submitted.">
+                          <!-- NEED SURVEY SCREENSHOTS -->
                         </div>
                     </div>
 
@@ -282,8 +286,8 @@
                 <p>There are multiple flows in Power Automate:</p>
                 <ul>
                     <li>A flow is triggered upon creation of a row on the Risk Assessment list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox. The flow also checks to see if any risks submitted by the surveyor are unqique; in which case the flow adds them to the Risk Reigster SharePoint List.</li>
-                    <li>A flow runs every 5 minutes to check for any 'open' records where the reminder time is in the past (when compared to the current flow start time). For any records that are; a push notification is sent to the user. If a user has complated the job in question there is a cancel nofitifcations option within the app. This updates the record to closed.</li>
-                    <li>Another scheduled flow runs at 5:30pm; moves any closed reminder entries for that day to a reminders archive list and emails a list of 'open' reminders to a central mailbox so engineers can be contacted. </li>
+                    <li>A flow runs every 5 minutes to check for any 'open' records where the reminder time is in the past (when compared to the current flow start time). For any records that are; a push notification is sent to the user. If a user has complated the job in question there is a cancel nofitifcation option within the app; this updates the record to closed.</li>
+                    <li>Another scheduled flow runs at 5:30pm; moves any closed reminder entries for that day to a reminders archive list and emails a list of 'open' reminders to a central mailbox so engineers can be contacted. I could obviously have done a lot more with the reminders/timers (notify   </li>
                     <li>A flow is triggered upon creation of a row on the Accident Report list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox.</li>
                 </ul>
 
@@ -313,7 +317,7 @@
                           <img src="images/GD/PPGD2.png" data-caption="The app is dyncamic; the above showing how the app appears when further columns are populated.">
                           <img src="images/GD/PPGD1.png" data-caption="How the app appears when the item in question only has one entry." >
                           <img src="images/GD/PPGDPDF.png" data-caption="An example of a PDF email.">
-                          <img src="images/GD/PPGDPDF2.png" data-caption="An example of a PDF report.">
+                          <img src="images/GD/PPGDPDF2.png" data-caption="An example of the resulting PDF report.">
 
                         </div>
                     </div>
@@ -329,11 +333,11 @@
             <div id="aggregate-container" class="app-container">
 
                 <p>This Power App was designed as a reporting application, bringing together data from seven separate SharePoint lists into a single, easy-to-use view. By consolidating this information in one place, users can quickly understand the overall picture without needing to navigate between multiple systems or lists.</p>
-                <p>The customer already uses a suite of Power Apps as part of their day-to-day processes. For that reason, the reporting solution was deliberately built as a Power App, rather than a standalone Power BI report. This ensures a consistent user experience, keeps everything within the same Microsoft 365 ecosystem, and allows the report to sit naturally alongside existing applications.</p>
+                <p>The customer already used a suite of Power Apps as part of their day-to-day processes. For that reason, the reporting solution was deliberately built as a Power App, rather than a standalone Power BI report.</p>
 
                 <h4>Power Automate</h4>
 
-                <p>The report can be exported to PDF on demand using a simple button within the app. When the export button is clicked, it triggers a Power Automate flow that generates a PDF version of the report and automatically sends it to the intended recipient via email. This makes it easy to share up-to-date, formatted reports with stakeholders who may not have access to the app itself.</p>
+                <p>The report can be exported to PDF on demand using the 'EXPORT TO PDF' button. When the export button is clicked, it triggers a Power Automate flow that generates a PDF version of the report and automatically sends it to the intended recipient via email. This makes it easy to share up-to-date, formatted reports with stakeholders who may not have access to the app itself.</p>
             </div>
 
         </div>
