@@ -122,11 +122,15 @@
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/EH/PPEH1.png" alt="Holiday app - request screen">
-                          <img src="images/EH/PPEH2.png" alt="Holiday app - request screen">
-                          <img src="images/EH/PPEH3.png" alt="Holiday app - request screen">
+                          <img src="images/EH/PPEH1.png" data-caption="The app homepage with options for requesting an Immediate or Planned test and the Tester Information form - where the outcome of the test was recorded.">
+                          <img src="images/EH/PPEH2.png" data-caption="The form for a Planned test.">
+                          <img src="images/EH/PPEH3.png" data-caption="The form for a Planned test continued.">
                           <img src="images/EH/PPEH4.png" alt="Holiday app - request screen">
                           <img src="images/EH/PPEH5.png" alt="Holiday app - request screen">
+                          <img src="images/EH/PPEHEmail1.png" data-caption="An example of a First Line Screening Test email.">
+                          <img src="images/EH/PPEHEmail2.png" data-caption="An example of an accepted Planned First Line Screening Test to the individual who requested the test.">
+
+
                         </div>
                     </div>
 
@@ -139,20 +143,19 @@
                     <p class="carousel-caption" aria-live="polite"></p>
                  </div>
 
-                <p>An app for requesting alcohol and drug tests and (recording the results) for a company running a fleet of vehichles.</p>
+                <p>An app for requesting alcohol/drug tests and for recording the results. Created for a company running a fleet of vehichles.</p>
 
-                <p>Immediate tests were requested at the time of an accident or if there were suspicions around a driver.</p>
-                <p>Planned tests were for screening new employeesor for scheduling random tests.</p>
-                <p>I was provided with a front end design by the client which I followed.</p>
-
-                <!-- how did test results work? -->
+                <p>Immediate tests were requested at the time of an accident or if there were suspicions around a driver. Planned tests were for screening new employees or for scheduling random tests.</p>
+                <p>The Tester Information form captured; who was carrying out the test, who was being tested, any medication/information a driver wished to disclose, confirmation photo ID was provided, whether the driver consented to the test and, if they did, whether or not it was negative. 
+                
 
                 <h4>Power Automate</h4>
 
                 <p>There are multiple flows in Power Automate:</p>
 
                 <ul>
-                    <li>Upon creation of a test request; a flow was triggered to notify relevant parties. Different groups of users were emailed depeneding on the test type. All emails were sent simultaneously to ensure the individuals towards the top of each list weren't shouldering the burden of completing the majority of tests. Upon the first acceptance (via email buttons) all subsequent attempts to accept failed. The individual who accepted the test was then emailed further details of the test; helping to protect the identity of the individual to be tested and prevent any potential favourtism. If the test in question was planned then an entry was added to a SharePoint calendar.</li>
+                    <li>Upon creation of a test request; a flow is triggered to notify relevant parties. Different groups of users were emailed depeneding on the test type. All emails were sent simultaneously to ensure the individuals towards the top of each list weren't shouldering the burden of completing the majority of tests. Upon the first acceptance (via email buttons) all subsequent attempts to accept failed. The individual who accepted the test was then emailed further details of the test; helping to protect the identity of the individual to be tested and preventing any potential favourtism. Once the test has been accepted, the individual who requested the test receives an email to confirm it has been accepted with the details of the individual completing the test included. If the test in question was planned then an entry was added to a SharePoint calendar.</li>
+                    <li>Once a test had been completed a flow was triggered to notify; the driver, their manager, the tester and HR. The entry for the test was then deleted from SharePoint (from a list with already strict access) to help protect the indentity and integrity of the driver.</p>
                 </ul>
 
             </div>
