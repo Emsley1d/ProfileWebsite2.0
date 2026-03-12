@@ -37,16 +37,15 @@
   border-radius: 999px;
   cursor: pointer;
   background: #f6f6f6;
-  border: 1px solid black;
   color: black;
-  font-size: 26px;
-  line-height: 40px;
+  font-size: 30px;
+  line-height: 32px;
   display: grid;
   z-index: 2;
 }
 
 .carousel-btn:hover {
-	background: #d9d9d9;
+	background: white;
 }
 
 .carousel-btn.prev { left: 10px; }
@@ -58,13 +57,11 @@
 }
 
 .carousel-dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 5px;
   display: flex;
   justify-content: center;
-  gap: 8px;
+  background-color: #d9d9d9;
+  gap: 10px;
+  padding: 6px 0;
   z-index: 2;
 }
 
@@ -74,11 +71,12 @@
   border-radius: 999px;
   border: 0;
   cursor: pointer;
+  background: white;
 
 }
 
 .carousel-dot[aria-current="true"] {
-  background: #646464;
+  background: #00040d;
 }
 
 .carousel-lightbox {
@@ -102,9 +100,9 @@
 
 .carousel-caption {
   margin: 0;
-  padding: 6px 12px 8px;
+  padding: 6px 12px 6px;
   font-size: 0.75rem;
-  color: #444;
+  color: #00040d;
   text-align: center;
   background-color: #d9d9d9;
   min-height: 3.4em; /* stops layout jump when caption length varies */

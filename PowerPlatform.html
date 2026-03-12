@@ -1,7 +1,7 @@
 ﻿<div class="power-container">
     <!-- ! HOLIDAY REQUEST APP -->
 
-    <h1>Power Platform Solutions</h1>
+    <h1>Power Platform Projects</h1>
 
     <p>Below is a small selection of Canvas Power Apps I created whilst employed at Springboard IT.</p>
 
@@ -38,9 +38,8 @@
 
                     <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
 
-                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
-
                     <p class="carousel-caption" aria-live="polite"></p>
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
                  </div>
 
                 <p>An app for requesting, viewing, deleting/cancelling and accepting/rejecting holiday requests.</p>
@@ -52,7 +51,6 @@
                 <p>For ease of use; the app allows staff to include weekends, public holidays and rota days in their request meaning they do not have to submit multiple for a period which includes any of the aforementioned.</p>
                 <p>Galleries allow individuals to see any pending and any accepted requests. Team Managers have additional screens allowing them to see all pending and all booked holiday for their teams.</p>
 
-                <!--
                 <h4>SharePoint</h4>
 
                 <p>I created the below in SharePoint:</p>
@@ -63,40 +61,22 @@
                     <li>Public Holidays - a list of all public holidays and (if required) any days the whole company is closed (for example ordinary working days between Christmas and New Year.</li>
                     <li>Requested Holiday - a list of all holiday requests, who requested the holiday, the start and end date, whether the holiday was accepted/rejected and holiday balance to be deducted.</li>
                     <li>Accepted Holiday Expanded - a list of any accepted holiday requests; listing each individual days's holiday between the requested dates, whether its a weekened, rota day or public holiday, whether each of the listed days need to be deducted from an individuals holiday balance and (if applicable) the balance to be deduced for each day</li>  
-                    <li>Holiday Data - a calendar view of all accepted holiday embedded in Microsoft Teams.</p>
+                    <li>Holiday Calendar - a calendar view of all accepted holiday embedded in Microsoft Teams.</p>
                 </ul>
-                -->
 
                 <h4>Power Automate</h4>
 
                 <p>There are multiple flows in Power Automate:</p>
 
                 <ul>
-                    <li>
-                        On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individual's manager is and emails them details of the request, with accept/reject options and corresponding emails sent in reply to the individual who requested the holiday..
-                    </li>
-                    <!--
-                        If accepted:
-                        <ul>
-                            <li>
-                                An email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint, and it appears on the Calendar view.
-                            </li>
+                    <li>On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individual's manager is and emails them details of the request, with accept/reject options and corresponding emails sent in reply to the individual who requested the holiday.</li>
+                    <li>If a holiday request or booked holiday is cancelled, the request/holiday is updated with a deleted status and an email is sent to the individual's manager to advise them of the cancelled holiday.</li>
+                    <li>When a holiday request is accepted another flow runs; this adds each individual day of the request to the 'Accepted Holiday Expanded' list. The flow works out which day of the week each requested day is and checks and compares each date and day against those on the Rota Days, Public Holidays, and Holiday Data SharePoint Lists. If any day is a weekend, a public holiday, an individual's rota day or falls in the next holiday year then 0 hours are attributed to it.
+                        For all working days (in the current holiday year) the number of hours an individual works each day (taken from Holiday Data) is attributed to each day.
+                        The flow then loops through each day of the request totalling the attributed hours. The totalled hours and then deducted from an individuals remaining hours on the Holiday Data list. </li>
+                    <li>A scheduled flow runs at the end of each holiday year. It resets all holiday balances on the Holiday Data list to 0, then for each employee on that list it runs through their entries on the Accepted Holiday Expanded list. It deletes any dates from the previous holiday year and effectively re-runs the process outlined in the above flow. Ultimately updating each employees holiday balance with holiday already booked for the year. </li>
 
-                        </ul>
-                        <br><br>
-                        If rejected:
-                        <ul>
-                            <li>
-                                An email is sent to the requestee confirming their holiday has been rejected, the request is updated to rejected in SharePoint, and it appears on the Calendar view.
-                            </li>
 
-                        </ul>
-                    -->
-                    <li>If a holiday request or booked holiday is cancelled, the request/holiday is updated with a deleted status (but not actually deleted - a stipulation from the client) and an email is sent to the individual's manager to advise them of the cancelled holiday.</li>
-                    <li>When a holiday request is accepted another flow runs; this adds each individual day of the request to another SharePoint list. The flow checks each day to establish if it's a weekend, a public holiday, an individual's rota day or whether the day is in the current holiday year or the next. If any of these are true then 0 hours are attributed to each day. For all other days another SharePoint list is checked; this includes their shift patterns. Corresponding hours worked are then attributed to each day. Finally the app runs through all days booked for that request, totals the hours against each day and deducts them from a user's remaining balance.</li>
-                    <li>When a holiday request is accepted another flow runs; this adds each individual day of the request to another SharePoint list. The flow checks each day to establish if it's a weekend, a public holiday or an individual's rota day. If any of these are true then 0 hours are attributed to each day. For all other days another SharePoint list is checked; this includes their shift patterns. Corresponding hours worked are then attributed to each day. Finally the app runs through all days booked for that request, totals the hours against each day and deducts them from a user's remaining balance.</li>
-
-                    
                 </ul>
 
             </div>
@@ -123,14 +103,12 @@
                     <div class="carousel-viewport">
                         <div class="carousel-track">
                           <img src="images/EH/PPEH1.png" data-caption="The app homepage with options for requesting an Immediate or Planned screening and the Tester Information form - where the outcome of the test is recorded.">
-                          <img src="images/EH/PPEH2.png" data-caption="The form for a Planned Request.">
-                          <img src="images/EH/PPEH3.png" data-caption="The form for a Planned Request continued.">
-                          <img src="images/EH/PPEH4.png" alt="Holiday app - request screen">
-                          <img src="images/EH/PPEH5.png" alt="Holiday app - request screen">
+                          <img src="images/EH/PPEH2.png" data-caption="The form for a Planned Screening Request.">
+                          <img src="images/EH/PPEH3.png" data-caption="The form for a Planned Screening Request continued (Immediate is virtually the same, just no Date or Time fields).">
+                          <img src="images/EH/PPEH5.png" data-caption="The Tester Information form.">
+                          <img src="images/EH/PPEH4.png" data-caption="Tester Information form continued.">
                           <img src="images/EH/PPEHEmail1.png" data-caption="An example of a First Line Screening Test email.">
                           <img src="images/EH/PPEHEmail2.png" data-caption="An example of an accepted Planned First Line Screening Test to the individual who requested the test.">
-
-
                         </div>
                     </div>
 
@@ -138,24 +116,21 @@
 
                     <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
 
-                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
-
                     <p class="carousel-caption" aria-live="polite"></p>
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
                  </div>
 
-                <p>An app for requesting alcohol/drug tests and for recording the results. Created for a company running a fleet of vehichles.</p>
+                <p>An app created for requesting Immediate or Planned alcohol and drug screenings and for recording the results. The app was created for a company running a fleet of vehichles.</p>
 
-                <p>Immediate tests were requested at the time of an accident or if there were suspicions around a driver. Planned tests were for screening new employees or for scheduling random tests.</p>
-                <p>The Tester Information form captured; who was carrying out the test, who was being tested, any medication/information a driver wished to disclose, confirmation photo ID was provided, whether the driver consented to the test and, if they did, whether or not it was negative. 
+                <p>Immediate screenings were requested at the time of an accident or if there were suspicions of a driver. Planned screenings were for new employees or for scheduling random tests.</p>
+                <p>The Tester Information form captured; who was carrying out the screening, who was being tested, any medication/information a driver wished to disclose, confirmation photo ID was provided, whether the driver consented and, if they did, the results of the screening.<p>
                 
 
                 <h4>Power Automate</h4>
 
-                <p>There are multiple flows in Power Automate:</p>
-
                 <ul>
-                    <li>Upon creation of a test request; a flow is triggered to notify relevant parties. Different groups of users were emailed depeneding on the test type. All emails were sent simultaneously to ensure the individuals towards the top of each list weren't shouldering the burden of completing the majority of tests. Upon the first acceptance (via email buttons) all subsequent attempts to accept failed. The individual who accepted the test was then emailed further details of the test; helping to protect the identity of the individual to be tested and preventing any potential favourtism. Once the test has been accepted, the individual who requested the test receives an email to confirm it has been accepted with the details of the individual completing the test included. If the test in question was planned then an entry was added to a SharePoint calendar.</li>
-                    <li>Once a test had been completed a flow was triggered to notify; the driver, their manager, the tester and HR. The entry for the test was then deleted from SharePoint (from a list with already strict access) to help protect the indentity and integrity of the driver.</p>
+                    <li>Upon creation of a screening request; a flow is triggered to notify relevant parties. Different groups of users are emailed depeneding on the test type. All emails are sent simultaneously to ensure the individuals towards the top of each list aren't shouldering the burden of completing the majority of tests. Upon the first acceptance (via email buttons) all subsequent attempts to accept fail. The individual who accepted the test is then emailed further details of the test; helping to protect the identity of the individual to be tested and preventing any potential favourtism. Once the test is been accepted, the individual who requested the test receives an email to confirm it has been accepted with the details of the individual completing the test included. If the test in question was planned then an entry is added to a SharePoint calendar.</li>
+                    <li>Once a screening is complete and the Tester Information form submitted, a flow is triggered to notify; the driver, their manager, the tester and HR. The entry for the screening is then deleted from SharePoint (from a list with already strict access) to help protect the indentity and integrity of the driver.</p>
                 </ul>
 
             </div>
@@ -164,64 +139,11 @@
 
     </div>
 
-
-    <!-- TIMESHEET & LOCATION REGISTER APP -->
-    <div class="collapsible" id="timesheet-app">
-
-        <div class="collapsible-header">
-            <h3>TIMESHEET & LOCATION REGISTER APP</h3>
-            <span class="toggle-icon">▾</span>
-        </div>
-
-        <div class="collapsible-content">
-
-            <div class="img-carousel" data-carousel>
-                    <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
-
-                    <div class="carousel-viewport">
-                        <div class="carousel-track">
-                          <img src="images/RT/PPRT1.png" data-caption="The home screen into which a user enters their unqiue PIN number.">
-                          <img src="images/RT/PPRT3.png" data-caption="The clock out screen (clock in being virtually the same.)">
-                          <img src="images/RT/PPRT2.png" data-caption="The screen that greets a Manager/Fire Warden upon login, the Clock In (or Out) button navigates them to the screen captured in the previous screenshoot.">
-                          <img src="images/RT/PPRT4.png" data-caption="Settings allows them to change the registered location of the tablet or view a list of currently clocked in users.">
-                          <img src="images/RT/PPRT5.png" data-caption="The Clocked In users list, empty in this example as the screenshot is from a test device with no registered location.">
-                        </div>
-                    </div>
-
-                    <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
-
-                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
-
-                    <p class="carousel-caption" aria-live="polite"></p>
-            </div>
-
-            <div id="timesheet-container" class="app-container">
-
-                <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event of a fire or site evacuation etc.</p>
-                <p>The app is use at one company but across a number of their sites; each version of app is set to a different site location.</p>
-                <p>A user simply enters their unique pin to clock in or out; if a user isn't currently clocked in they are done so upon input of their pin and vice versa if they are already clocked in at the point of entering their pin. A user is then signed out and the screen reverts to the home screen ready for a new user to click in or out. This is designed to keep interaction to a minimum to prevent users queing at the tablets.</p>
-                <p>Managers and Fire Wardens have a different level of access (managed via a SharePoint List). When Managers log in they have access to a settings screen where they can change the set location of the tablet. Fire Wardens have access to a screen that lists all individuals at the office/site that are currently clocked in.
-
-                <h4>Power Automate</h4>
-
-                <p>There are multiple flows in Power Automate:</p>
-                <ul>
-                    <li>On submit of a holiday request (and the request being patched to a SharePoint list) a flow ascertains who an individuals manager is and emails them details of the request; with accept/reject options.
-                        If accept is pressed; an email is sent to the requestee confirming their holiday has been approved, the request is updated to accepted in SharePoint and appears on the Calendar view.</li>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- LONE WORKING AND RISK ASSESSMENT APP -->
+    <!-- RISK ASSESSMENT AND ACCIDENT REPORT APP -->
     <div class="collapsible" id="lone-working-app">
 
         <div class="collapsible-header">
-            <h3>LONE WORKING AND RISK ASSESSMENT APP</h3>
+            <h3>RISK ASSESSMENT AND ACCIDENT REPORT APP</h3>
             <span class="toggle-icon">▾</span>
         </div>
 
@@ -250,22 +172,21 @@
 
                     <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
 
-                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
-
                     <p class="carousel-caption" aria-live="polite"></p>
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
             </div>
 
             <div id="loneWorking-container" class="app-container">
 
-                <p>The app enables surveyors to complete a site safesty risk assessment before undertaking a site survey. The questions are dynamic; the questions presented to the surveyor changed based upon previous answers.</p>
+                <p>The app enables surveyors to complete a site safesty risk assessment before undertaking a site survey. The questions are dynamic; the questions presented to the surveyor change based upon previous answers.</p>
                 <p>If the risk is deemed too great the app instructs users to contact the office for further advice or to cancel the survey altogether.</p>
                 <p>In addition to the safety questions; the app allows users to take and upload photographs and tag specific risks. If the risk doesn't already exist on a Risk Register SharePoint list then the risk is added so it becomes a permanent addition to the risk options selectable through a drop down within the app.</p>
-                <p>The app allows users to confirm who they are working with; or if working alone to set a reminder (for 1, 2 or 3 hours based upon risk) to contact and check in with their office.</p>
+                <p>If a form is submitted whilst a surveyor is outside of network coverage then the form is saved to local data. Each time the app is opened it checks to see if the device has a data conneciton; if it does it automatically uploads and then deletes any locally saved data from the app.</p>
+                <p>The app allows users to confirm who they are working with; or if working alone to set a reminder (for 1, 2 or 3 hours based upon risk) to contact and check in with their office. The only caveat being reminders are only set (and received) if the surveyor has a data connection.</p>
                 <p>The client later requested the addition of an Accident Report form; giving users the ability to record and submit details of any accidents direct from site. The form could collect third-party details, a summary of the accident</p>
-                <p>The client required that an accident location be recorded in the format of What 3 Words. The W3W API proved too costly </p>
+                <p>The client required that an accident location be recorded in the format of What 3 Words. The W3W API proved too costly so the 'Confirm Location' button opens the What 3 Words website; users then copy and paste their location to the provided field within the app.</p>
 
-
-
+                <!--
                 <h4>SharePoint</h4>
 
                 <p>I created the below in SharePoint:</p>
@@ -276,15 +197,64 @@
                     <li>Archived Notifications List</li>
                     <li>Accident Reports List</li>
                 </ul>
+                -->
 
                 <h4>Power Automate</h4>
 
-                <p>There are multiple flows in Power Automate:</p>
                 <ul>
                     <li>A flow is triggered upon creation of a row on the Risk Assessment list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox. The flow also checks to see if any risks submitted by the surveyor are unqique; in which case the flow adds them to the Risk Reigster SharePoint List.</li>
                     <li>A flow runs every 5 minutes to check for any 'open' records where the reminder time is in the past (when compared to the current flow start time). For any records that are; a push notification is sent to the user. If a user has complated the job in question there is a cancel nofitifcation option within the app; this updates the record to closed.</li>
                     <li>Another scheduled flow runs at 5:30pm; moves any closed reminder entries for that day to a reminders archive list and emails a list of 'open' reminders to a central mailbox so engineers can be contacted. I could obviously have done a lot more with the reminders/timers (notify   </li>
                     <li>A flow is triggered upon creation of a row on the Accident Report list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox.</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TIMESHEET & LOCATION REGISTER APP -->
+    <div class="collapsible" id="timesheet-app">
+
+        <div class="collapsible-header">
+            <h3>TIMESHEET & LOCATION REGISTER APP</h3>
+            <span class="toggle-icon">▾</span>
+        </div>
+
+        <div class="collapsible-content">
+
+            <div class="img-carousel" data-carousel>
+                    <button class="carousel-btn prev" type="button" aria-label="Previous image">‹</button>
+
+                    <div class="carousel-viewport">
+                        <div class="carousel-track">
+                          <img src="images/RT/PPRT1.png" data-caption="The Home screen into which a user enters their PIN number.">
+                          <img src="images/RT/PPRT3.png" data-caption="The Clock Out screen (Clock In being virtually the same).">
+                          <img src="images/RT/PPRT2.png" data-caption="The screen that greets a Manager/Fire Warden upon login, the Clock In (or Out) button navigates them to the screen captured in the previous screenshot.">
+                          <img src="images/RT/PPRT4.png" data-caption="Settings allows them to change the registered location of the tablet or view a list of currently clocked in users.">
+                          <img src="images/RT/PPRT5.png" data-caption="The Clocked In users list, the list is empty in this example as the screenshot is from a test device with no registered location.">
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
+
+                    <p class="carousel-caption" aria-live="polite"></p>
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
+            </div>
+
+            <div id="timesheet-container" class="app-container">
+
+                <p>The app enables employees to clock in and out when arriving at different offices and acts as a site register; in the event a site has to be evacuated.</p>
+                <p>The app is use at one company but across a number of their sites; each version of app is set to a different site location.</p>
+                <p>A user enters their unique PIN to clock in or out; upon entering their PIN, the app establishes their current status (whether they are clocked in or not). Depending upon their status they are automatically navigates to either the Clock In or Clock Out screen. The current time is automatically entered (as either the Clock In/Out time) and an entry patched to a SharePoint list. After 3 seconds, the user is logged out and the screen reverts back to the Home screen. This app is designed to keep interaction to a minimum to prevent users queing at the tablets.</p>
+                <p>Managers and Fire Wardens have a different level of access (managed via a SharePoint List). When Managers log in they have access to a settings screen where they can change the set location of the tablet. Fire Wardens have access to a screen that lists all individuals at the office/site that are currently clocked in.</p>
+
+                <h4>Power Automate</h4>
+
+                <ul>
+                    <li>A flow runs daily at 11pm; it moves all Timesheet entries to an archive SharePoint list; so the app is fresh the following day regardless of whether or not an individual didn't clock out. </li>
                 </ul>
 
             </div>
@@ -320,9 +290,8 @@
 
                     <button class="carousel-btn next" type="button" aria-label="Next image">›</button>
 
-                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
-
                     <p class="carousel-caption" aria-live="polite"></p>
+                    <div class="carousel-dots" aria-label="Carousel navigation"></div>
 
             </div>
 
@@ -333,7 +302,9 @@
 
                 <h4>Power Automate</h4>
 
-                <p>The report can be exported to PDF on demand using the 'EXPORT TO PDF' button. When the export button is clicked, it triggers a Power Automate flow that generates a PDF version of the report and automatically sends it to the intended recipient via email. This makes it easy to share up-to-date, formatted reports with stakeholders who may not have access to the app itself.</p>
+                <ul>
+                    <li>The report can be exported to PDF on demand using the 'EXPORT TO PDF' button. When the export button is clicked, it triggers a Power Automate flow that generates a PDF version of the report and automatically sends it to the intended recipient via email. This makes it easy to share up-to-date, formatted reports with stakeholders who may not have access to the app itself.</li>
+                </ul>
             </div>
 
         </div>

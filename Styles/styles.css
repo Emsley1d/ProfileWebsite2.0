@@ -1,10 +1,10 @@
 ﻿body {
+    display: flex;
     margin: 0;
     font-family: Arial, sans-serif;
-    display: flex;
     justify-content: center;
     align-items: center;
-    height: auto;
+    min-height: 100vh;
     background-color: white;
 }
 
@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 1200px;
 }
@@ -22,7 +23,7 @@
     max-width: 800px;
     margin-bottom: 20px;
     justify-content: center;
-    height: 400px;
+    height: 420px;
 }
 
 
@@ -30,7 +31,7 @@
     padding: 5px;
     background-color: white; 
     text-align: left;
-    color: black;
+    color: #00040d;
 }
 
 .box1 {
@@ -45,8 +46,15 @@
     max-width: 70%;
 }
 
+.profile-container {
+    display: flex;
+    justify-content: center;  
+    align-items: center; 
+}
+
+
 .profile-image {
-    width: 120px;     
+    width: 140px;     
     height: auto;
     display: block;
     margin-top: 15px;
@@ -55,7 +63,7 @@
 
 .heading {
     margin: 0;
-    font-size: 60px;
+    font-size: 50px;
     line-height: 1;
 }
 
@@ -66,7 +74,7 @@
 
 .horizontal-line {
     height: 1px;
-    background-color: #2C3E50;
+    background-color: #00040d;
     width: 100%;
     max-width: 800px;
     margin-bottom: 20px;
@@ -84,12 +92,16 @@
 }
 
 .link-box {
+    display: flex;
     padding: 10px;
     background-color: white;
     text-align: center;
 }
 
 .link-box img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 93px;
     height: auto;
     display: block;
@@ -120,9 +132,6 @@
     font-size: 10px;
 }
 
-.policy p {
-    text-align: left;
-}
 
 .policy {
     width: 100%;
@@ -148,6 +157,16 @@
 }
 
 
+.mobileLabels{
+  display: none;
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #00040d;
+  text-align: center;
+}
+
+
 
 /* BACK TO TOP BUTTON */
 .back-to-top-container {
@@ -158,8 +177,8 @@
 
 .back-to-top-btn {
     padding: 10px 20px;
-    background-color: rgba(75, 75, 95, 0.48);
-    color: black;
+    background-color: #F6F6F6;
+    color: #00040d;
     border: none;
     border-radius: 2px;
     cursor: pointer;
@@ -168,8 +187,7 @@
 }
 
 .back-to-top-btn:hover {
-    background-color: rgba(70, 70, 90, 0.8);
-    color: white;
+    background-color: #d9d9d9;
 }
 
 /* COLLAPSIBLE CONTAINER */
@@ -191,7 +209,6 @@
   background-color: #f6f6f6;
   border-bottom: 1px solid #d9d9d9;
   border-right: 1px solid #d9d9d9;
-  /*box-shadow: 0px 5px 0px 0px grey;*/
   position: relative;
   z-index: 999;
   pointer-events: auto;
@@ -208,20 +225,20 @@
   width: 100%;
   box-sizing: border-box;
   pointer-events: auto;
-  color: #646464;
+  color: #00040d;
 }
 
 .header-text {
     font-size: 0.9em;
     margin-right: 20px;
     white-space: nowrap;
-    color: #646464;
+    color: #00040d;
 }
 
 .toggle-icon {
   transition: transform 0.4s ease;
   font-size: 25px;
-  color: #646464;
+  color: #00040d;
 }
 
 .toggle-icon.open {
@@ -241,7 +258,7 @@
   padding: 15px;
 }
 
-/* GA PROJECT LAYOUT */
+/* GA PROJECT LAYOUT
 
 .project-layout {
     display: flex;
@@ -271,6 +288,7 @@
 .project-image img:hover {
     transform: scale(1.1);
 }
+*/
 
 /* Responsive layout for mobile */
 @media (max-width: 768px) {
@@ -332,113 +350,109 @@
   padding: 10px;
 }
 
-
-/* ==========================
-   Responsive overrides
-========================== */
-
-:root {
-  --page-pad: 16px;
-  --content-max: 800px;
-}
+/* =========================================================
+   MOBILE OVERRIDES ONLY (does NOT change desktop layout)
+   Paste at the very bottom of your CSS file
+========================================================= */
 
 *, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 
-body {
-  padding: var(--page-pad);
-  min-height: 100vh;
+/* Avoid accidental horizontal scrolling on phones */
+body { overflow-x: hidden; }
+
+/* Improve tap responsiveness on touch devices */
+button, a, .collapsible-header {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-.container,
-#policy-container,
-#content-pane,
-#privacy-content-pane,
-#policy-content-pane,
-.policy,
-.horizontal-line,
-.image-links,
-.collapsible,
-.top-content {
-  width: 100%;
+/* Only apply hover zoom on devices that actually hover (not phones) */
+@media (hover: none), (pointer: coarse) {
+  .link-box img:hover,
+  .project-image img:hover {
+    transform: none !important;
+  }
 }
 
-.container, #policy-container {
-  max-width: 1200px;
-}
-
-
-.top-content {
-  max-width: var(--content-max);
-  height: auto;             
-  gap: 16px;
-}
-
-.text-box {
-  min-width: 0;           
-}
-
-.heading {
-  font-size: clamp(34px, 7vw, 60px);
-  line-height: 1.05;
-}
-
-.sub-heading {
-  font-size: clamp(16px, 3.2vw, 25px);
-}
-
-.profile-image {
-  width: clamp(80px, 18vw, 120px);
-  height: auto;
-}
-
-.image-links {
-  max-width: var(--content-max);
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .link-box img:hover { transform: scale(1.1); }
-}
-
-/* ==========================
-   Mobile tweaks
-========================== */
-
+/* -----------------------
+   Mobile
+------------------------ */
 @media (max-width: 768px) {
+
+  
   body {
-    justify-content: flex-start;
+    padding: 12px;
+    justify-content: flex-start;  
     align-items: stretch;
   }
 
-    .profile-image {
+  
+  .container, #policy-container,
+  .top-content,
+  .horizontal-line,
+  .image-links,
+  #content-pane, #privacy-content-pane,
+  #policy-content-pane,
+  .policy,
+  .collapsible {
+    max-width: 100% !important;
+  }
+
+  
+  .top-content {
+    height: auto !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  
+  .box1, .box2 {
+    max-width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  /* Remove profile picture on mobile??? */
+  .profile-image {
     display: none !important;
   }
-}
 
-  .top-content {
-    flex-direction: column;  
-    align-items: stretch;
+  
+  .heading {
+    font-size: 40px !important;
+    line-height: 1.05;
   }
 
-  .box1, .box2 {
-    max-width: 100%;
-    margin-right: 0;
+  .sub-heading {
+    font-size: 18px !important;
   }
 
-  .box1 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; 
-  }
-
+  
   .text-box {
-    padding: 12px;
+    padding: 12px !important;
   }
 
-  /* Collapsible header */
+  
+  .image-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  .link-box {
+    padding: 8px !important;
+  }
+
+  .link-box img {
+    width: 72px !important;
+    margin: 0 auto;
+  }
+
+  
   .collapsible-header {
-    height: auto;
-    padding: 12px;
+    height: auto !important;
+    padding: 12px !important;
   }
 
   .collapsible-header h3 {
@@ -446,30 +460,18 @@ body {
   }
 
   .header-text {
-    white-space: normal;
-    margin-right: 12px;
-    font-size: 0.9em;
+    white-space: normal !important;
+    margin-right: 10px !important;
+    font-size: .7em;
   }
 
-  /* Reduce icon size */
-  .link-box img {
-    width: 72px;
-    margin: 0 auto;
-  }
-}
-
-@media (max-width: 480px) {
-  :root { --page-pad: 12px; }
-
-  .image-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  
+  .custom-tooltip {
+    display: none !important;
   }
 
-  .link-box {
-    padding: 8px;
-  }
-
-  .link-box img {
-    width: 64px;
+  
+  .dashboard-app {
+    width: 100% !important;
   }
 }

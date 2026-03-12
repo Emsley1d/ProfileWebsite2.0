@@ -1,8 +1,29 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿function collapseAllCollapsibles() {
+    document.querySelectorAll(".collapsible.open").forEach(container => {
+        const content = container.querySelector(".collapsible-content");
+        const icon = container.querySelector(".toggle-icon");
+
+        container.classList.remove("open");
+        icon?.classList.remove("open");
+
+        if (content) {
+            content.style.maxHeight = "0px";
+        }
+    });
+
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".content-loader");
     buttons.forEach(button => {
         button.addEventListener("click", function (event) {
             event.preventDefault();
+
+            collapseAllCollapsibles();
+
             // Hide policy-content-pane if visible when any button is clicked
             const policyPane = document.getElementById("policy-content-pane");
             if (policyPane && policyPane.style.display === "block") {
