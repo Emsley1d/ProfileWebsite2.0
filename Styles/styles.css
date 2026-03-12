@@ -63,13 +63,16 @@
 
 .heading {
     margin: 0;
+    text-align: center;
     font-size: 50px;
     line-height: 1;
 }
 
 .sub-heading {
+    text-align: center;
     margin-top: 5px;
     font-size: 25px;
+
 }
 
 .horizontal-line {
@@ -159,11 +162,6 @@
 
 .mobileLabels{
   display: none;
-  margin: 6px 0 0;
-  font-size: 12px;
-  line-height: 1.2;
-  color: #00040d;
-  text-align: center;
 }
 
 
@@ -258,7 +256,7 @@
   padding: 15px;
 }
 
-/* GA PROJECT LAYOUT
+/* GA PROJECT LAYOUT */
 
 .project-layout {
     display: flex;
@@ -288,19 +286,7 @@
 .project-image img:hover {
     transform: scale(1.1);
 }
-*/
 
-/* Responsive layout for mobile */
-@media (max-width: 768px) {
-    .project-layout {
-        flex-direction: column;
-    }
-    
-    .project-image {
-        width: 100%;
-        max-width: 300px;
-    }
-}
 
 .tooltip-container {
     position: relative;
@@ -350,10 +336,7 @@
   padding: 10px;
 }
 
-/* =========================================================
-   MOBILE OVERRIDES ONLY (does NOT change desktop layout)
-   Paste at the very bottom of your CSS file
-========================================================= */
+/* MOBILE OVERRIDES ONLY */
 
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
@@ -375,9 +358,7 @@ button, a, .collapsible-header {
   }
 }
 
-/* -----------------------
-   Mobile
------------------------- */
+/* ---------------------------------- Mobile ---------------------------------- */
 @media (max-width: 768px) {
 
   
@@ -404,34 +385,43 @@ button, a, .collapsible-header {
     height: auto !important;
     flex-direction: column;
     align-items: stretch;
-    gap: 14px;
-    margin-bottom: 16px;
   }
 
+  .profile-image {
+    width: 140px;     
+    height: auto;
+    display: block;
+  }
+
+  .box1 {
+    display: flex;
+  }
   
   .box1, .box2 {
     max-width: 100% !important;
     margin-right: 0 !important;
   }
 
-  /* Remove profile picture on mobile??? */
-  .profile-image {
-    display: none !important;
+  .homeHeadings {
+    padding-top: 50px;
   }
+
 
   
   .heading {
+    margin-left: 20px;
     font-size: 40px !important;
     line-height: 1.05;
   }
 
   .sub-heading {
     font-size: 18px !important;
+    margin-left: 20px;
   }
 
   
   .text-box {
-    padding: 12px !important;
+    padding: 0px 12px 0px 12px !important;
   }
 
   
@@ -447,6 +437,14 @@ button, a, .collapsible-header {
   .link-box img {
     width: 72px !important;
     margin: 0 auto;
+  }
+
+  .mobileLabels{
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #00040d;
+  text-align: center;
   }
 
   
@@ -474,4 +472,13 @@ button, a, .collapsible-header {
   .dashboard-app {
     width: 100% !important;
   }
+
+  .project-layout {
+        flex-direction: column;
+    }
+    
+    .project-image {
+        width: 100%;
+        max-width: 300px;
+    }
 }

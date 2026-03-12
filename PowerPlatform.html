@@ -102,7 +102,7 @@
 
                     <div class="carousel-viewport">
                         <div class="carousel-track">
-                          <img src="images/EH/PPEH1.png" data-caption="The app homepage with options for requesting an Immediate or Planned screening and the Tester Information form - where the outcome of the test is recorded.">
+                          <img src="images/EH/PPEH1.png" data-caption="The app homepage with options for requesting an Immediate or Planned screening and the Tester Information form.">
                           <img src="images/EH/PPEH2.png" data-caption="The form for a Planned Screening Request.">
                           <img src="images/EH/PPEH3.png" data-caption="The form for a Planned Screening Request continued (Immediate is virtually the same, just no Date or Time fields).">
                           <img src="images/EH/PPEH5.png" data-caption="The Tester Information form.">
@@ -204,7 +204,7 @@
                 <ul>
                     <li>A flow is triggered upon creation of a row on the Risk Assessment list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox. The flow also checks to see if any risks submitted by the surveyor are unqique; in which case the flow adds them to the Risk Reigster SharePoint List.</li>
                     <li>A flow runs every 5 minutes to check for any 'open' records where the reminder time is in the past (when compared to the current flow start time). For any records that are; a push notification is sent to the user. If a user has complated the job in question there is a cancel nofitifcation option within the app; this updates the record to closed.</li>
-                    <li>Another scheduled flow runs at 5:30pm; moves any closed reminder entries for that day to a reminders archive list and emails a list of 'open' reminders to a central mailbox so engineers can be contacted. I could obviously have done a lot more with the reminders/timers (notify   </li>
+                    <li>Another scheduled flow runs at 5:30pm; moves any closed reminder entries for that day to a reminders archive list and emails a list of 'open' reminders to a central mailbox so engineers can be contacted.</li>
                     <li>A flow is triggered upon creation of a row on the Accident Report list, the flow fetches and attaches any corresponding photos and populates an HTML table that is then emailed to a central mailbox.</li>
                 </ul>
 
