@@ -96,32 +96,41 @@
 
 .link-box {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 10px;
     background-color: white;
     text-align: center;
 }
 
+
 .link-box img {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     width: 93px;
     height: auto;
-    display: block;
     cursor: pointer;
     background-color: white; 
+}
+
+
+.link-box button {
+    border: 0px;
+    padding: 0; 
+    cursor: pointer; 
+    background-color: white; 
+    overflow: visible;
 
 }
 
 .link-box img:hover {
+    transition: transform 0.1s ease;
     transform: scale(1.1);
 }
 
-.link-box button {
-    border: 0px;
-    background-color: white; 
-
+.iconLabels {
+    font-size: 14px;
 }
+
 
 #content-pane, #privacy-content-pane {
     display: none;
@@ -158,13 +167,6 @@
     padding-bottom: 15px;
     padding-bottom: 30px;
 }
-
-
-.mobileLabels{
-  display: none;
-}
-
-
 
 /* BACK TO TOP BUTTON */
 .back-to-top-container {
@@ -350,13 +352,6 @@ button, a, .collapsible-header {
   touch-action: manipulation;
 }
 
-/* Only apply hover zoom on devices that actually hover (not phones) */
-@media (hover: none), (pointer: coarse) {
-  .link-box img:hover,
-  .project-image img:hover {
-    transform: none !important;
-  }
-}
 
 /* ---------------------------------- Mobile ---------------------------------- */
 @media (max-width: 768px) {
@@ -432,6 +427,11 @@ button, a, .collapsible-header {
 
   .link-box {
     padding: 8px !important;
+    border: 2px solid transparent;
+  }
+
+   .link-box:active {
+    border: 2px solid #f6f6f6;
   }
 
   .link-box img {
@@ -439,15 +439,13 @@ button, a, .collapsible-header {
     margin: 0 auto;
   }
 
-  .mobileLabels{
-  margin: 6px 0 0;
-  font-size: 12px;
-  line-height: 1.2;
-  color: #00040d;
-  text-align: center;
+  /*
+  .link-box img:active {
+    background-color: #f6f6f6;
   }
+  */
 
-  
+
   .collapsible-header {
     height: auto !important;
     padding: 12px !important;
@@ -461,6 +459,10 @@ button, a, .collapsible-header {
     white-space: normal !important;
     margin-right: 10px !important;
     font-size: .7em;
+  }
+
+  .h1 {
+    text-align: center;
   }
 
   
